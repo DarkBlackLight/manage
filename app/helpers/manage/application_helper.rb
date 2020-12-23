@@ -8,7 +8,7 @@ module Manage
           (
             tag.li class: "c-sidebar-nav-item" do
               link_to route[:url], class: "c-sidebar-nav-link" do
-                (tag.i class: route[:class]) + route[:name]
+                (tag.i "", class: route[:class]) + route[:name]
               end
             end
           )
