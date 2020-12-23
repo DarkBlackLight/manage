@@ -1,0 +1,11 @@
+//= require lib/coreui.bundle.min
+//= require lib/svgxuse.min
+//= require lib/coreui-chartjs.bundle
+//= require lib/coreui-utils
+//= require lib/jquery.min
+//= require lib/toastr
+//= require lib/moment.min
+//= require lib/select2.min
+//= require lib/daterangepicker
+//= require utils
+//= require cocoon
