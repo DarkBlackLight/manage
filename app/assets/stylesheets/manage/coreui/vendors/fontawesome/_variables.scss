@@ -1,7 +1,7 @@
 // Variables
 // --------------------------
 
-$fa-font-path: asset_url("/manage/fonts") !default;
+$fa-font-path: asset_path("/fonts/manage") !default;
 $fa-font-size-base: 16px !default;
 $fa-font-display: block !default;
 $fa-css-prefix: fa !default;
