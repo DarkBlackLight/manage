@@ -1,6 +1,6 @@
 require "manage/version"
 require "manage/engine"
-require "concerns"
+require "concerns/controllers/manage_controller"
 
 module Manage
   # Your code goes here...
