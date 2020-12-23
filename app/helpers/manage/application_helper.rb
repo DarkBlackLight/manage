@@ -3,12 +3,26 @@ module Manage
     def render_sidebar(routes)
       (routes.filter { |route| route[:can] }.map do |route|
         route[:children] ?
-          ()
+          (
+            tag.li class: "c-sidebar-nav-dropdown" do
+              (
+                tag.a class: 'c-sidebar-nav-dropdown-toggle' do
+                  (tag.i "", class: route[:icon]) + route[:name]
+                end
+              )
+              +
+              (
+                tag.ul class: "c-sidebar-nav-dropdown-items" do
+                  render_sidebar(route[:children])
+                end
+              )
+            end
+          )
           :
           (
             tag.li class: "c-sidebar-nav-item" do
               link_to route[:url], class: "c-sidebar-nav-link" do
-                (tag.i "", class: route[:icon]) + route[:name]
+                (route[:icon] ? (tag.i "", class: route[:icon]) : '') + route[:name]
               end
             end
           )
