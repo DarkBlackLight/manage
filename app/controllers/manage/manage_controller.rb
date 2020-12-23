@@ -1,5 +1,5 @@
 module Manage
-  class ManageController < ActionController::Base
+  class ManageController < ApplicationController
     layout 'manage/application'
 
     before_action :authenticate_user!
