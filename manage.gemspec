@@ -1,22 +1,22 @@
 require_relative "lib/manage/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "manage"
-  spec.version     = Manage::VERSION
-  spec.authors     = ["liwuqi95"]
-  spec.email       = ["wuqi.li@mail.utoronto.ca"]
-  spec.homepage    = "TODO"
-  spec.summary     = "TODO: Summary of Manage."
-  spec.description = "TODO: Description of Manage."
-  spec.license     = "MIT"
+  spec.name = "manage"
+  spec.version = Manage::VERSION
+  spec.authors = ["liwuqi95"]
+  spec.email = ["wuqi.li@mail.utoronto.ca"]
+  spec.homepage = "https://github.com/liwuqi95/manage"
+  spec.summary = "Gem For CMS Management"
+  spec.description = "Gem For CMS Management"
+  spec.license = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = spec.homepage
+  spec.metadata["changelog_uri"] = spec.homepage
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
