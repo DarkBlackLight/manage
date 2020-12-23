@@ -1,7 +1,7 @@
 module Manage
   module ApplicationHelper
     def render_sidebar(routes)
-      routes.filter { |route| route[:can] }.map do |route|
+      (routes.filter { |route| route[:can] }.map do |route|
         route[:children] ?
           ()
           :
@@ -14,7 +14,7 @@ module Manage
               end
             end
           )
-      end
+      end).inject { |sum, n| sum + n }
     end
 
     def manage_text_field(form, field, options = {})
