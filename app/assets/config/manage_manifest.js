@@ -1,3 +1,1 @@
-//= link_directory ../stylesheets/manage .css
-
-//= link application.scss
+//= link manage/application.css
