@@ -9,9 +9,7 @@ module Manage
                 link_to class: 'c-sidebar-nav-dropdown-toggle' do
                   (tag.i "", class: route[:icon]) + route[:name]
                 end
-              )
-              +
-              (
+              ) + (
                 tag.ul class: "c-sidebar-nav-dropdown-items" do
                   render_sidebar(route[:children])
                 end
