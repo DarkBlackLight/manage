@@ -11,7 +11,7 @@ module Manage
       @routes = [{
                    name: "Dashboard",
                    url: url_for({ controller: :dashboard, action: :index }),
-                   icon: "cil-calendar",
+                   icon: "fas fa-tachometer-alt",
                    can: (can? :index, :dashboard)
                  }]
     end

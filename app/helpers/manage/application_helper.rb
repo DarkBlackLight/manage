@@ -8,11 +8,7 @@ module Manage
           (
             tag.li class: "c-sidebar-nav-item" do
               link_to route[:url], class: "c-sidebar-nav-link" do
-                (
-                  tag.svg class: "c-sidebar-nav-icon" do
-                    tag.use "xlink:href": "/manage/svg/free.svg##{route[:icon]}" ""
-                  end
-                ) + (route[:name])
+                tag.i class: route[:class] + route[:name]
               end
             end
           )
