@@ -1,5 +1,5 @@
 module Manage
-  class ApplicationController < ApplicationController
+  class DashboardController < ApplicationController
     def index
 
     end
