@@ -1,4 +1,4 @@
-# require 'devise'
+require 'devise'
 
 module Manage
   class Engine < ::Rails::Engine
