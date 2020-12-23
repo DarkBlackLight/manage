@@ -1,5 +1,22 @@
 module Manage
   module ApplicationHelper
+    def render_sidebar(routes)
+      routes.filter { |route| route[:can] }.map do |route|
+        route[:children] ?
+          ()
+          :
+          (
+            tag.li class: "c-sidebar-nav-item" do
+              link_to routes[:url], class: "c-sidebar-nav-link" do
+                tag.svg class: "c-sidebar-nav-icon" do
+                  tag.use "xlink:href": "/manage/svg/free.svg##{route[:icon]}"
+                end
+              end
+            end
+          )
+      end
+    end
+
     def manage_text_field(form, field, options = {})
       options[:class] = "#{options[:class]} form-control"
       tag.div class: 'form-group' do

@@ -5,7 +5,7 @@
 
 <ul class="c-sidebar-nav">
 
-  <%= render_sidebar %>
+  <%= render_sidebar(@routes) %>
 
   <li class="c-sidebar-nav-item">
     <%= link_to url_for({ controller: :dashboard, action: :index }), class: 'c-sidebar-nav-link' do %>
