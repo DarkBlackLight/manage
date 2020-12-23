@@ -1,0 +1,27 @@
+<% sections.each do |key, value| %>
+  <% if content_for?(key) %>
+    <div class="card">
+      <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="card-title mb-0"><%= value %></h5>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="row">
+          <%= yield key %>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+<% end %>
+
+<% content_for :footer do %>
+  <footer class="c-footer bg-white">
+    <button class="btn btn-link go-back">Back</button>
+    <div class="mfs-auto">
+      <button type="button" class="btn btn-primary btn-resource">Submit</button>
+    </div>
+  </footer>
+<% end %>

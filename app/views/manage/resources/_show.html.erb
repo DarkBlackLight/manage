@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="card-title"><%= @model_name.capitalize %> Info</h5>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <table class="table table-striped">
+          <tbody>
+          <%= yield @resource %>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<% content_for :footer do %>
+  <footer class="c-footer bg-white">
+    <button class="btn btn-link go-back">Back</button>
+    <div class="mfs-auto">
+      <% if can? :update, @resource %>
+        <%= link_to 'Edit', ({ action: 'edit', id: @resource.id }), class: 'btn btn-warning' %>
+      <% end %>
+      <% if can? :destroy, @resource %>
+        <%= link_to 'Delete', ({ action: 'destroy', id: @resource.id }), method: :delete, data: { confirm: 'Are you sure to delete?' }, class: 'btn btn-danger' %>
+      <% end %>
+    </div>
+  </footer>
+<% end %>
