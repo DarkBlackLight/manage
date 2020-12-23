@@ -5,6 +5,8 @@
 
 <ul class="c-sidebar-nav">
 
+  <%= render_sidebar %>
+
   <li class="c-sidebar-nav-item">
     <%= link_to url_for({ controller: :dashboard, action: :index }), class: 'c-sidebar-nav-link' do %>
       <svg class="c-sidebar-nav-icon">
@@ -13,6 +15,27 @@
       Dashboard
     <% end %>
   </li>
+
+  <li class="c-sidebar-nav-dropdown"
+  ><a class="c-sidebar-nav-dropdown-toggle">
+    <svg class="c-sidebar-nav-icon">
+      <use xlink:href="/admin/svg/free.svg#cil-people"></use>
+    </svg>
+    People</a>
+    <ul class="c-sidebar-nav-dropdown-items">
+      <li class="c-sidebar-nav-item">
+        <%= link_to url_for({ controller: :instructors, action: :index }), class: 'c-sidebar-nav-link' do %>
+          Instructor
+        <% end %>
+      </li>
+      <li class="c-sidebar-nav-item">
+        <%= link_to url_for({ controller: :students, action: :index }), class: 'c-sidebar-nav-link' do %>
+          Student
+        <% end %>
+      </li>
+    </ul>
+  </li>
+
 </ul>
 
 <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-unfoldable"></button>
