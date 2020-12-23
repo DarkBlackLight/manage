@@ -1,3 +1,4 @@
+//= require rails-ujs
 //= require manage/lib/coreui.bundle.min
 //= require manage/lib/svgxuse.min
 //= require manage/lib/coreui-chartjs.bundle
