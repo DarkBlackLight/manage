@@ -6,7 +6,7 @@ module Manage
           (
             tag.li class: "c-sidebar-nav-dropdown" do
               (
-                tag.a class: 'c-sidebar-nav-dropdown-toggle' do
+                link_to class: 'c-sidebar-nav-dropdown-toggle' do
                   (tag.i "", class: route[:icon]) + route[:name]
                 end
               )
