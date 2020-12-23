@@ -10,7 +10,7 @@ module Manage
               link_to route[:url], class: "c-sidebar-nav-link" do
                 tag.svg class: "c-sidebar-nav-icon" do
                   tag.use "xlink:href": "/manage/svg/free.svg##{route[:icon]}"
-                end
+                end + (route[:name])
               end
             end
           )
