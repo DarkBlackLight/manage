@@ -1,5 +1,3 @@
-require 'active_support/concern'
-
 module Manage::Concerns::Controllers::ManageController
   extend ActiveSupport::Concern
 
