@@ -8,8 +8,10 @@
 
     <div class="card-body">
       <%= form_tag(url_for({}), method: :get) do %>
+
+        <%= yield :filter_form %>
+
         <div class="row">
-          <%= yield :filter_form %>
           <div class="col-md-12 text-center">
             <%= submit_tag 'Search', name: nil, class: 'btn btn-info' %>
           </div>
