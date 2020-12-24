@@ -6,7 +6,7 @@ module Manage
 
       layout 'manage/application'
 
-      before_action :authenticate_user!
+      before_action :authenticate_manage_user!
       before_action :setup_routes
 
       private
