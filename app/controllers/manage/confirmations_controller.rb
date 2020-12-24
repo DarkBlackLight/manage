@@ -19,6 +19,13 @@ class Manage::ConfirmationsController < Devise::ConfirmationsController
 
   # protected
 
+  private
+
+  def after_confirmation_path_for(resource_name, resource)
+    sign_in(resource) # In case you want to sign in the user
+    url_for({ controller: :dashboard, action: :index })
+  end
+
   # The path used after resending confirmation instructions.
   # def after_resending_confirmation_instructions_path_for(resource_name)
   #   super(resource_name)
