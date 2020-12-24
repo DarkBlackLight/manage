@@ -14,6 +14,9 @@ class DeviseCreateManageUsers < ActiveRecord::Migration[6.1]
 
       t.references :source, polymorphic: true
 
+      t.string :token
+      t.datetime :token_created_at
+
       ## Recoverable
       t.string :reset_password_token
       t.datetime :reset_password_sent_at
