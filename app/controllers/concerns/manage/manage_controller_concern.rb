@@ -6,7 +6,6 @@ module Manage
 
       layout 'manage/application'
 
-
       before_action :setup_routes
 
       private
