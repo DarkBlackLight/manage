@@ -68,5 +68,12 @@ module Manage
         (label_tag label) + (text_field_tag name, value, options)
       end
     end
+
+    def manage_number_tag(label, name, value, options = {})
+      options[:class] = "#{options[:class]} form-control"
+      tag.div class: 'form-group' do
+        (label_tag label) + (number_field_tag name, value, options)
+      end
+    end
   end
 end

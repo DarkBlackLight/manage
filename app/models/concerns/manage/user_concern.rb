@@ -3,8 +3,7 @@ module Manage
     extend ActiveSupport::Concern
 
     included do
-      devise :database_authenticatable, :registerable, :recoverable,
-             :rememberable, :validatable, :trackable, :lockable
+      devise :database_authenticatable, :rememberable, :validatable, :trackable
 
       belongs_to :source, polymorphic: true
 
