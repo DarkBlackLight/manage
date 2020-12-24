@@ -5,7 +5,8 @@ module Manage
     included do
 
       layout 'manage/application'
-      
+
+
       before_action :setup_routes
 
       private
