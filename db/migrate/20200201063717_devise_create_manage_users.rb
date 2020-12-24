@@ -46,8 +46,8 @@ class DeviseCreateManageUsers < ActiveRecord::Migration[6.1]
       t.timestamps null: false
     end
 
-    add_index :users, :email, unique: true, where: 'email IS NOT '''
-    add_index :users, :username, unique: true, where: 'username IS NOT '''
+    add_index :users, :email, unique: true, where: "email IS NOT ''"
+    add_index :users, :username, unique: true, where: "username IS NOT ''"
 
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token, unique: true
