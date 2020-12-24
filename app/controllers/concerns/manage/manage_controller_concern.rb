@@ -1,4 +1,4 @@
-module ManageControllerConcern
+module Manage::ManageControllerConcern
   extend ActiveSupport::Concern
   included do
     layout 'controllers/application'
