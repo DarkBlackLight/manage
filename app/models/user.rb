@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-  include Manage::UserConcern
+  include UserConcern
 end
 
