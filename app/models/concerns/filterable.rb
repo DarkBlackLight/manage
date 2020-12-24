@@ -10,5 +10,4 @@ module Manage::Filterable
       results
     end
   end
-
 end
