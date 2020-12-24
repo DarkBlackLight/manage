@@ -20,6 +20,9 @@ module Manage
                    }]
       end
 
+      def current_ability
+        @current_ability ||= ManageAbility.new(current_user)
+      end
     end
 
   end
