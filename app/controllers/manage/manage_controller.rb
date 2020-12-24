@@ -1,5 +1,5 @@
 module Manage
   class ManageController < ApplicationController
-    include Manage::Concerns::ManageController
+    include Manage::Concerns::Controllers::ManageController
   end
 end
