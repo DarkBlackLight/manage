@@ -5,7 +5,7 @@ class DeviseCreateManageUsers < ActiveRecord::Migration[6.1]
     create_table :users do |t|
       ## Database authenticatable
       t.string :email, null: false, default: ""
-      t.string :username, null: true, default: ""
+      t.string :username, null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       t.string :first_name
@@ -38,6 +38,10 @@ class DeviseCreateManageUsers < ActiveRecord::Migration[6.1]
       t.integer :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       t.string :unlock_token # Only if unlock strategy is :email or :both
       t.datetime :locked_at
+
+      ## Omniauthable
+      t.string :provider
+      t.string :uid
 
       t.timestamps null: false
     end
