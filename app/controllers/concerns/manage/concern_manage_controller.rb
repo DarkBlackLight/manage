@@ -1,5 +1,5 @@
 module Manage
-  module Concern
+  module Concerns
     module ManageController
       extend ActiveSupport::Concern
       included do
