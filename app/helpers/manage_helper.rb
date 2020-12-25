@@ -6,7 +6,7 @@ module ManageHelper
           tag.li class: "c-sidebar-nav-dropdown" do
             (
               tag.a class: 'c-sidebar-nav-dropdown-toggle' do
-                (tag.i "", class: route[:icon]) + route[:name]
+                (tag.div (tag.i "", class: route[:icon]), class: 'c-sidebar-icon') + route[:name]
               end
             ) + (
               tag.ul class: "c-sidebar-nav-dropdown-items" do
@@ -19,7 +19,7 @@ module ManageHelper
         (
           tag.li class: "c-sidebar-nav-item" do
             link_to route[:url], class: "c-sidebar-nav-link" do
-              (route[:icon] ? (tag.i "", class: route[:icon]) : '') + route[:name]
+              (route[:icon] ? (tag.div (tag.i "", class: route[:icon]), class: 'c-sidebar-icon') : '') + route[:name]
             end
           end
         )
