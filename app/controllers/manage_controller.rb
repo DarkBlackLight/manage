@@ -1,4 +1,4 @@
-class ManageController < ApplicationController
-  include ManageControllerConcern
+class Manage::ManageController < ApplicationController
+  include Manage::ManageControllerConcern
 end
 
