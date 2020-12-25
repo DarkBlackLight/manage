@@ -35,6 +35,10 @@ $(document).on('ajax:error', '.form-resource', function (e, data, status, xhr) {
   toastr.error(e.originalEvent.detail[0].data, 'Error!')
 });
 
+$(document).on('cocoon:after-insert', function () {
+  initFormComponents()
+});
+
 $(document).ready(function () {
   initFormComponents()
 });
