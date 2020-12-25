@@ -3,13 +3,13 @@ module Manage::ManageControllerConcern
 
   included do
     layout 'manage/application'
-
+    before_action :authenticate_manage_user!
     before_action :setup_routes
 
     private
 
     def current_ability
-      @current_ability ||= ManageAbility.new(current_user)
+      @current_ability ||= ManageAbility.new(current_manage_user)
     end
 
     def setup_routes
