@@ -1,4 +1,4 @@
-module ManageControllerConcern
+module ManageResourcesConcern
   extend ActiveSupport::Concern
   included do
 
