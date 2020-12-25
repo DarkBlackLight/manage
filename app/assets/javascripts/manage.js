@@ -45,8 +45,13 @@ $(document).ready(function () {
 
 
 function initFormComponents() {
-  $('.select2').not('.select2-hidden-accessible').select2({
-    theme: 'coreui'
+
+  $(".select2").each(function () {
+    if (!$(this).hasClass("select2-hidden-accessible")) {
+      $(this).select2({
+        theme: 'coreui'
+      });
+    }
   });
 
   $('.datepicker').daterangepicker({
