@@ -4,7 +4,7 @@
 //= require coreui/coreui-utils
 //= require jquery3
 //= require rails-ujs
-//= require coreui/jquery-ui.min
+//= require jquery-ui/widgets/sortable
 //= require coreui/toastr
 //= require coreui/moment.min
 //= require coreui/select2.min
