@@ -41,7 +41,7 @@ $(document).on("click", ".btn-cocoon", function (e) {
   for (var i = 0; i < depth; i++)
     ele = ele.parent();
 
-  ele.children($(this).data('cocoon-target')).append($(this).prev().data('association-insertion-template'));
+  ele.find($(this).data('cocoon-target')).append($(this).prev().data('association-insertion-template'));
 })
 
 $(document).on('cocoon:after-insert', function () {
