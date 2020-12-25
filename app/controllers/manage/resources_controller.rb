@@ -1,4 +1,4 @@
-class Manage::ResourcesController < ManageController
+class Manage::ResourcesController < Manage::ManageController
 
   before_action :set_model
   before_action :set_resource, only: [:show, :edit, :update, :destroy]

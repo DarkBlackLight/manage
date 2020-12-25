@@ -1,4 +1,4 @@
-class Manage::DashboardController < ManageController
+class Manage::DashboardController < Manage::ManageController
   def index
 
   end
