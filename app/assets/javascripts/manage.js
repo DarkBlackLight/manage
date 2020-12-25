@@ -42,6 +42,7 @@ $(document).on("click", ".btn-cocoon", function (e) {
     ele = ele.parent();
 
   ele.find($(this).data('cocoon-target')).append($(this).prev().data('association-insertion-template'));
+  initFormComponents();
 })
 
 $(document).on('cocoon:after-insert', function () {
