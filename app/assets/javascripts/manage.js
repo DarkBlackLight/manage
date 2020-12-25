@@ -36,7 +36,29 @@ $(document).on('ajax:error', '.form-resource', function (e, data, status, xhr) {
 });
 
 $(document).ready(function () {
+  initFormComponents()
+});
+
+
+function initFormComponents() {
   $('.select2').not('.select2-hidden-accessible').select2({
     theme: 'coreui'
   });
-});
+
+  $('.datepicker').daterangepicker({
+    singleDatePicker: true,
+    locale: {
+      format: "YYYY/MM/DD"
+    }
+  });
+
+  $('.datetimepicker').daterangepicker({
+    singleDatePicker: true,
+    timePicker: true,
+    timePicker24Hour: true,
+    timePickerIncrement: 30,
+    locale: {
+      format: "YYYY/MM/DD HH:mm"
+    }
+  });
+}

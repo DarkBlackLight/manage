@@ -33,6 +33,34 @@ module ManageHelper
     end
   end
 
+  def manage_email_field(form, field, options = {})
+    options[:class] = "#{options[:class]} form-control"
+    tag.div class: 'form-group' do
+      (form.label field) + (form.email_field field, options)
+    end
+  end
+
+  def manage_password_field(form, field, options = {})
+    options[:class] = "#{options[:class]} form-control"
+    tag.div class: 'form-group' do
+      (form.label field) + (form.password_field field, options)
+    end
+  end
+
+  def manage_date_field(form, field, options = {})
+    options[:class] = "#{options[:class]} form-control datepicker"
+    tag.div class: 'form-group' do
+      (form.label field) + (form.text_field field, options)
+    end
+  end
+
+  def manage_datetime_field(form, field, options = {})
+    options[:class] = "#{options[:class]} form-control datetimepicker"
+    tag.div class: 'form-group' do
+      (form.label field) + (form.text_field field, options)
+    end
+  end
+
   def manage_number_field(form, field, options = {})
     options[:class] = "#{options[:class]} form-control"
     tag.div class: 'form-group' do
