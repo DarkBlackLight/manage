@@ -9,8 +9,11 @@
 //= require coreui/select2.min
 //= require coreui/daterangepicker
 //= require coreui/full-calendar
-//= require cocoon
 //= require customize_manage
+//= require cocoon
+//= require jquery_ujs
+//= require jquery-ui/widgets/sortable
+//= require rails_sortable
 
 toastr.options = {
   "positionClass": "toast-top-center",
