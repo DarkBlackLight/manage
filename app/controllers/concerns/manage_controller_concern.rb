@@ -1,5 +1,6 @@
 module ManageControllerConcern
   extend ActiveSupport::Concern
+  include Manage::ApplicationHelper
 
   included do
     layout 'manage/application'
