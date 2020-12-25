@@ -12,6 +12,8 @@ $spinkit-spinner-color: $body-color;
 @import "vendors/spinkit/spinkit";
 
 @import "vendors/@fullcalendar/core/main";
+@import "vendors/@fullcalendar/main.min";
+
 @import "vendors/bootstrap-daterangepicker/daterangepicker";
 @import "vendors/toastr/toastr";
 @import "vendors/select2/select2.min";
