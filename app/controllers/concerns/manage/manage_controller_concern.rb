@@ -3,12 +3,26 @@ module Manage
     extend ActiveSupport::Concern
 
     included do
-
       layout 'manage/application'
+
+      before_action :_authenticate!
+      helper_method :_current_user
 
       before_action :setup_routes
 
       private
+
+      def _authenticate!
+        instance_eval(&Manage::Config.authenticate_with)
+      end
+
+      def _authorize!
+        instance_eval(&Manage::Config.authorize_with)
+      end
+
+      def current_ability
+        @current_ability ||= ManageAbility.new(current_user)
+      end
 
       def setup_routes
         @routes = [{
@@ -19,9 +33,6 @@ module Manage
                    }]
       end
 
-      def current_ability
-        @current_ability ||= ManageAbility.new(current_user)
-      end
     end
 
   end
