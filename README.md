@@ -16,6 +16,9 @@ And then execute:
 $ bundle
 ```
 
+We need to determine a namespace in your application.
+We will use "Admin" as an example
+
 ## Configuration
 Add this line to your app/assets/config/manifest.js
 ```ruby
