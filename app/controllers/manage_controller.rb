@@ -1,5 +1,3 @@
-module Manage
-  class ManageController < ApplicationController
-    include ManageControllerConcern
-  end
+class ManageController < ApplicationController
+  include ManageControllerConcern
 end
