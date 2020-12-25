@@ -1,6 +1,6 @@
 module ManageControllerConcern
   extend ActiveSupport::Concern
-  include ManageHelper
+
   included do
     layout 'manage/application'
     before_action :authenticate_manage_user!
