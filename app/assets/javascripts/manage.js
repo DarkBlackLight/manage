@@ -8,6 +8,7 @@
 //= require coreui/moment.min
 //= require coreui/select2.min
 //= require coreui/daterangepicker
+//= require coreui/fullcalendar
 //= require cocoon
 //= require customize_manage
 
