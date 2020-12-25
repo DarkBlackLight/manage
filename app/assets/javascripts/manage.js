@@ -4,6 +4,7 @@
 //= require coreui/coreui-chartjs.bundle
 //= require coreui/coreui-utils
 //= require coreui/jquery.min
+//= require coreui/jquery-ui.min
 //= require coreui/toastr
 //= require coreui/moment.min
 //= require coreui/select2.min
@@ -11,8 +12,6 @@
 //= require coreui/full-calendar
 //= require customize_manage
 //= require cocoon
-//= require jquery_ujs
-//= require jquery-ui/widgets/sortable
 //= require rails_sortable
 
 toastr.options = {
