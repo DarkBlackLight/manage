@@ -1,10 +1,10 @@
-//= require rails-ujs
 //= require coreui/coreui.bundle.min.js
 //= require coreui/svgxuse.min
 //= require coreui/coreui-chartjs.bundle
 //= require coreui/coreui-utils
 //= require coreui/jquery.min
 //= require coreui/jquery-ui.min
+//= require rails-ujs
 //= require coreui/toastr
 //= require coreui/moment.min
 //= require coreui/select2.min
