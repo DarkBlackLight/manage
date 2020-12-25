@@ -47,7 +47,7 @@ $(document).ready(function () {
 function initFormComponents() {
 
   $(".select2").each(function () {
-    if (!$(this).hasClass("select2-hidden-accessible")) {
+    if (!$(this).hasClass("select2-container")) {
       $(this).select2({
         theme: 'coreui'
       });
