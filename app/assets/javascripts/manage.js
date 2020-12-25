@@ -2,7 +2,7 @@
 //= require coreui/svgxuse.min
 //= require coreui/coreui-chartjs.bundle
 //= require coreui/coreui-utils
-//= require jquery
+//= require jquery3
 //= require jquery-ui/widgets/sortable
 //= require rails-ujs
 //= require coreui/toastr
