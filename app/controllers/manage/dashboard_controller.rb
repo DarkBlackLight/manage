@@ -1,7 +1,6 @@
-module Manage
-  class DashboardController < ManageController
-    def index
+class Manage::DashboardController < ManageController
+  def index
 
-    end
   end
 end
+
