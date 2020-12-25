@@ -4,6 +4,7 @@
 //= require coreui/coreui-chartjs.bundle
 //= require coreui/coreui-utils
 //= require jquery
+//= require jquery_ujs
 //= require jquery-ui/widgets/sortable
 //= require coreui/toastr
 //= require coreui/moment.min
