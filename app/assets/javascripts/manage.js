@@ -9,6 +9,7 @@
 //= require coreui/select2.min
 //= require coreui/daterangepicker
 //= require cocoon
+//= require customize_manage
 
 toastr.options = {
   "positionClass": "toast-top-center",
