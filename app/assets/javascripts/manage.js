@@ -35,6 +35,15 @@ $(document).on('ajax:error', '.form-resource', function (e, data, status, xhr) {
   toastr.error(e.originalEvent.detail[0].data, 'Error!')
 });
 
+$(document).on("click", ".btn-cocoon", function (e) {
+  var depth = parseInt($(this).data('depth'));
+  var ele = $(this);
+  for (var i = 0; i < depth; i++)
+    ele = ele.parent();
+
+  ele.children($(this).data('cocoon-target')).append($(this).prev().data('association-insertion-template'));
+})
+
 $(document).on('cocoon:after-insert', function () {
   initFormComponents()
 });
