@@ -5,20 +5,9 @@ module Manage
     included do
       layout 'manage/application'
 
-      before_action :_authenticate!
-      helper_method :_current_user
-
       before_action :setup_routes
 
       private
-
-      def _authenticate!
-        warden.authenticate! scope: :user
-      end
-
-      def _current_user
-        :current_user
-      end
 
       def current_ability
         @current_ability ||= ManageAbility.new(current_user)
