@@ -8,7 +8,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'manage'
+gem 'manage', git: 'https://github.com/liwuqi95/manage'
 ```
 
 And then execute:
@@ -16,9 +16,10 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install manage
+## Configuration
+Add this line to your app/assets/config/manifest.js
+```ruby
+//= link manage_manifest.js
 ```
 
 ## Contributing
