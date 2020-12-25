@@ -13,11 +13,11 @@ module Manage
       private
 
       def _authenticate!
-        instance_eval(&Manage::Config.authenticate_with)
+        warden.authenticate! scope: :user
       end
 
-      def _authorize!
-        instance_eval(&Manage::Config.authorize_with)
+      def _current_user
+        :current_user
       end
 
       def current_ability
