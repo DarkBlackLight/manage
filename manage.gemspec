@@ -25,7 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "cocoon", ">= 1.2.15"
   spec.add_dependency "cancancan", ">= 3.2.0"
   spec.add_dependency "kaminari", ">= 1.2.1"
-  spec.add_dependency "jquery-rails", ">= 4.4.0"
-  spec.add_dependency "jquery-ui-rails", ">= 6.0.1"
   spec.add_dependency "rails_sortable", ">= 1.4.1"
 end
