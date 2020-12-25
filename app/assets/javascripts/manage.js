@@ -59,6 +59,13 @@ $(document).ready(function () {
 
 function initFormComponents() {
 
+  $('.sortable').railsSortable({handle: '.sortable-handle'});
+  $('.nested-fields').each(function () {
+    if ($(this).next().is('input')) {
+      $(this).append($(this).next());
+    }
+  })
+
   $(".select2").each(function () {
     if (!$(this).hasClass("select2-container")) {
       $(this).select2({
