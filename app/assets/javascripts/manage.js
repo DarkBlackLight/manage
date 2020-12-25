@@ -3,7 +3,7 @@
 //= require coreui/svgxuse.min
 //= require coreui/coreui-chartjs.bundle
 //= require coreui/coreui-utils
-//= require jquery
+//= require coreui/jquery.min
 //= require coreui/jquery-ui.min
 //= require coreui/toastr
 //= require coreui/moment.min
