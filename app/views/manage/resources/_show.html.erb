@@ -17,9 +17,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
-      <%= yield :bottom_content if content_for?(:bottom_content) %>
-    </div>
+    <%= yield :bottom_content if content_for?(:bottom_content) %>
   </div>
 
   <div class="col-md-6">
