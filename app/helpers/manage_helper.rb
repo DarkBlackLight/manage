@@ -92,15 +92,30 @@ module ManageHelper
   def manage_text_tag(label, name, value, options = {})
     options[:class] = "#{options[:class]} form-control"
     tag.div class: 'form-group' do
-      (label_tag label) + (text_field_tag name, value, options)
+      (label ? (label_tag label) : '') + (text_field_tag name, value, options)
     end
   end
 
   def manage_number_tag(label, name, value, options = {})
     options[:class] = "#{options[:class]} form-control"
     tag.div class: 'form-group' do
-      (label_tag label) + (number_field_tag name, value, options)
+      (label ? (label_tag label) : '') + (number_field_tag name, value, options)
     end
   end
+
+  def manage_collection_select_tag(label, name, value, collection, value_method, text_method, options = {})
+    options[:class] = "#{options[:class]} form-control select2"
+    tag.div class: 'form-group' do
+      (label ? (label_tag label) : '') + (select_tag name, options_from_collection_for_select(collection, value_method, text_method, value), options)
+    end
+  end
+
+  def manage_select_tag(label, name, value, choices, options = {})
+    options[:class] = "#{options[:class]} form-control select2"
+    tag.div class: 'form-group' do
+      (label ? (label_tag label) : '') + (select_tag name, options_for_select(choices, value), options)
+    end
+  end
+
 end
 
