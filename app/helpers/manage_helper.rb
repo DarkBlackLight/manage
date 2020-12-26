@@ -93,7 +93,7 @@ module ManageHelper
     options[:class] = "#{options[:class]} form-control"
     manage_tag = (text_field_tag name, value, options)
     tag.div class: 'form-group' do
-      (label ? (label_tag label + manage_tag) : manage_tag)
+      (label ? ((label_tag label) + manage_tag) : manage_tag)
     end
   end
 
@@ -101,7 +101,7 @@ module ManageHelper
     options[:class] = "#{options[:class]} form-control"
     manage_tag = (number_field_tag name, value, options)
     tag.div class: 'form-group' do
-      (label ? (label_tag label + manage_tag) : manage_tag)
+      (label ? ((label_tag label) + manage_tag) : manage_tag)
     end
   end
 
@@ -109,7 +109,7 @@ module ManageHelper
     options[:class] = "#{options[:class]} form-control select2"
     manage_tag = (select_tag name, options_from_collection_for_select(collection, value_method, text_method, value), options)
     tag.div class: 'form-group' do
-      (label ? (label_tag label + manage_tag) : manage_tag)
+      (label ? ((label_tag label) + manage_tag) : manage_tag)
     end
   end
 
@@ -117,7 +117,7 @@ module ManageHelper
     options[:class] = "#{options[:class]} form-control select2"
     manage_tag = (select_tag name, options_for_select(choices, value), options)
     tag.div class: 'form-group' do
-      (label ? (label_tag label + manage_tag) : manage_tag)
+      (label ? ((label_tag label) + manage_tag) : manage_tag)
     end
   end
 
