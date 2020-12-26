@@ -5,9 +5,14 @@ Short description and motivation.
 How to use my plugin.
 
 ## Installation
-Add this line to your application's Gemfile:
+Add those lines to your application's Gemfile:
 
 ```ruby
+gem 'devise'
+gem 'cancancan'
+gem 'cocoon'
+gem 'kaminari'
+gem 'rails_sortable'
 gem 'manage', git: 'https://github.com/liwuqi95/manage'
 ```
 
@@ -23,6 +28,11 @@ We will use "Admin" as an example
 Add this line to your app/assets/config/manifest.js
 ```ruby
 //= link manage_manifest.js
+```
+Run command
+```shell
+rails generate devise:install
+rails active_storage:install
 ```
 
 ## Contributing
