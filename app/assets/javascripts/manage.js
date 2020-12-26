@@ -10,6 +10,7 @@
 //= require coreui/select2.min
 //= require coreui/daterangepicker
 //= require coreui/full-calendar
+//= require coreui/dropzone.min
 
 //= require customize_manage
 //= require cocoon
