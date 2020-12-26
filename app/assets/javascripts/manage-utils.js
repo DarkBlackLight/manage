@@ -27,7 +27,10 @@ $(document).on("click", ".btn-cocoon", function (e) {
   for (var i = 0; i < depth; i++)
     ele = ele.parent();
 
-  ele.find($(this).data('cocoon-target')).append($(this).prev().data('association-insertion-template'));
+  var target = ele.find($(this).data('cocoon-target'));
+  var link = $(this).prev().find('a')
+  link.trigger('click');
+  target.append(link.prev());
   initFormComponents();
 })
 
