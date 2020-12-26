@@ -1,24 +1,7 @@
 <% if content_for?(:filter_form) %>
-  <div class="card">
-    <div class="card-header ">
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="card-title"><%= @model_name.humanize.capitalize %> Filter</div>
-      </div>
-    </div>
-
-    <div class="card-body">
-      <%= form_tag(url_for({}), method: :get) do %>
-
-        <%= yield :filter_form %>
-
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <%= submit_tag 'Search', name: nil, class: 'btn btn-info' %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  <%= render 'filter' do %>
+    <%= yield :filter_form %>
+  <% end %>
 <% end %>
 
 <div class="card">
