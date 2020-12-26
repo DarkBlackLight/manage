@@ -1,11 +1,17 @@
-<div id="manage-<%= name %>-dropzone" class="manage-dropzone"></div>
+<div id="manage-<%= name %>-dropzone" class="dropzone"></div>
 
 <script>
+  Dropzone.autoDiscover = false;
+
   $(document).ready(function () {
     $("div#manage-<%= name %>-dropzone").dropzone({
       url: '<%= url_for({controller: name.pluralize, action: :create }) %>',
       paramName: '<%= name %>[document]',
-      params: {"<%= name %>[<%= params[0] %>]": <%= params[1] %>}
+      params: {"<%= name %>[<%= params[0] %>]": <%= params[1] %>},
+      parallelUploads: 1,
+      queuecomplete: function (file, response) {
+        location.reload();
+      }
     });
   })
 </script>
