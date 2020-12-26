@@ -9,7 +9,7 @@
 //= require coreui/moment.min
 //= require coreui/select2.min
 //= require coreui/daterangepicker
-//= require coreui/full-calendar
+//= require coreui/fullcalendar.min
 //= require coreui/dropzone.min
 //= require cocoon
 //= require rails_sortable
