@@ -17,8 +17,15 @@
       </div>
     </div>
 
-
+    <div class="col-md-6">
+      <%= yield :bottom_content if content_for?(:bottom_content) %>
+    </div>
   </div>
+
+  <div class="col-md-6">
+    <%= yield :right_content if content_for?(:right_content) %>
+  </div>
+
 </div>
 
 <% content_for :footer do %>
