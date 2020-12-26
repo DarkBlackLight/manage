@@ -101,6 +101,7 @@ module ManageHelper
     options[:class] = "#{options[:class]} form-control"
     manage_tag = (number_field_tag name, value, options)
     tag.div class: 'form-group' do
+      (label ? (label_tag label + manage_tag) : manage_tag)
     end
   end
 
