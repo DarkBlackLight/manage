@@ -120,5 +120,6 @@ module ManageHelper
       (label ? ((label_tag label) + manage_tag) : manage_tag)
     end
   end
+
 end
 

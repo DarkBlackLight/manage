@@ -1,21 +1,17 @@
-<%= form_with(model: @resource, url: { action: @resource.id ? :update : :create, id: @resource.id }, local: false, html: { class: 'form-resource' }) do |form| %>
-
-  <% sections.each do |key, value| %>
-    <% if content_for?(key) %>
-      <div class="card">
-        <div class="card-header">
-          <div class="d-flex justify-content-between align-items-center">
-            <h5 class="card-title mb-0"><%= value %></h5>
-          </div>
-        </div>
-
-        <div class="card-body">
-          <%= yield key %>
+<% sections.each do |key, value| %>
+  <% if content_for?(key) %>
+    <div class="card">
+      <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="card-title mb-0"><%= value %></h5>
         </div>
       </div>
-    <% end %>
-  <% end %>
 
+      <div class="card-body">
+        <%= yield key %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
 
 <% content_for :footer do %>
