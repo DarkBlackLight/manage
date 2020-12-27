@@ -40,6 +40,7 @@ Run command
 ```shell
 rails generate devise:install
 rails active_storage:install
+rails manage:install:migrations
 ```
 
 ## Contributing
