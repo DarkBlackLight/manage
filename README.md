@@ -44,7 +44,9 @@ Add this line to your app/assets/config/manifest.js
 ```
 
 Create file app/models/ability/admin_ability.rb with following code
+
 ```ruby
+
 class Ability::AdminAbility
   include CanCan::Ability
 
@@ -58,6 +60,7 @@ end
 Create file app/controllers/admin_controller.rb with following code
 
 ```ruby
+
 class AdminController < ApplicationController
   include ManageControllerConcern
   before_action :authenticate_admin_user!
@@ -73,12 +76,27 @@ class AdminController < ApplicationController
 end
 ```
 
+Create file app/controllers/admin/resources_controller.rb with following code
+
+```ruby
+
+class Admin::ResourcesController < ApplicationController
+  include ManageResourcesConcern
+end
+```
+
 Add this line to your app/config/routes.rb inside routes
 
 ```ruby
   namespace :admin do
-    devise_for :users
-  end
+  devise_for :users
+end
+```
+
+Add this line to your app/models/application_record.rb inside ApplicationRecord
+
+```ruby
+  include Filterable
 ```
 
 ## Contributing
