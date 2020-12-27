@@ -1,10 +1,10 @@
-<div class="modal fade" id="<%= modal_id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog <%= 'modal-' + size rescue nil %>>" role="document">
+<div class="modal" id="<%= modal_id %>" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog <%= 'modal-' + size rescue nil %>>">
     <div class="modal-content">
       <% if title %>
         <div class="modal-header">
           <h4 class="modal-title"><%= title %></h4>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+          <button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
           </button>
         </div>
       <% end %>
