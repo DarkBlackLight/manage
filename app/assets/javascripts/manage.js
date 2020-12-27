@@ -13,3 +13,28 @@
 //= require manage-customize.js
 
 
+$(document).on('click', '.c-class-toggler', function () {
+
+  var data_target = $($(this).data('target'));
+  var data_class = $(this).data('class');
+
+  if (data_target.hasClass(data_class)) {
+    data_target.removeClass(data_class)
+  } else {
+    data_target.addClass(data_class);
+  }
+})
+
+
+$(document).on('click', '.c-sidebar-nav-dropdown-toggle', function () {
+
+  var data_target = $($(this).parent());
+  var data_class = 'c-show';
+
+  if (data_target.hasClass(data_class)) {
+    data_target.removeClass(data_class)
+  } else {
+    data_target.addClass(data_class);
+  }
+})
+
