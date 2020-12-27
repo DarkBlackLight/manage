@@ -67,7 +67,7 @@ class AdminController < ApplicationController
   end
 
   def setup_config
-    @title = "UFORSE CMS | UFORSE EDUCATION"
+    @title = "Title For your App"
     @reoutes = []
   end
 end
