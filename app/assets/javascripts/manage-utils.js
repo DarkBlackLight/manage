@@ -101,7 +101,7 @@ function initFormComponents() {
 }
 
 
-$(document).ready(function () {
+$( document ).on('turbolinks:load', function() {
   initFormComponents();
 
   var body = $('body');

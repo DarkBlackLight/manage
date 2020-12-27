@@ -3,7 +3,7 @@
 <script>
   Dropzone.autoDiscover = false;
 
-  $(document).ready(function () {
+  $( document ).on('turbolinks:load', function() {
     $("div#manage-<%= name %>-dropzone").dropzone({
       url: '<%= url_for({controller: name.pluralize, action: :create }) %>',
       paramName: '<%= name %>[document]',
