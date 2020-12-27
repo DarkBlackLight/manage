@@ -34,7 +34,7 @@ Run command
 ```shell
 rails generate devise:install
 rails active_storage:install
-rails manage:install:migrations
+rails manage_engine:install:migrations
 ```
 
 Add this line to your app/assets/config/manifest.js
