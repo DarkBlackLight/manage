@@ -85,7 +85,7 @@ function initFormComponents() {
   $('.datepicker').daterangepicker({
     singleDatePicker: true,
     locale: {
-      format: "YYYY/MM/DD"
+      format: "YYYY-MM-DD"
     }
   });
 
@@ -95,13 +95,13 @@ function initFormComponents() {
     timePicker24Hour: true,
     timePickerIncrement: 30,
     locale: {
-      format: "YYYY/MM/DD HH:mm"
+      format: "YYYY-MM-DD HH:mm"
     }
   });
 }
 
 
-$( document ).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function () {
   initFormComponents();
 
   var body = $('body');
