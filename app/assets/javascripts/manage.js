@@ -1,3 +1,4 @@
+//= require turbolinks
 //= require coreui/jquery.min
 //= require coreui/jquery-ui.min
 //= require rails-ujs
