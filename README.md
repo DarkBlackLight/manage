@@ -43,7 +43,7 @@ Add this line to your app/assets/config/manifest.js
 // = link manage_manifest.js
 ```
 
-Create file app/models/admin_ability.rb with following code
+Create file app/models/admin/admin_ability.rb with following code
 ```ruby
 class Ability::AdminAbility
   include CanCan::Ability
