@@ -29,18 +29,56 @@ We need to determine a namespace in your application. We will use "Admin" as an 
 
 ## Configuration
 
-Add this line to your app/assets/config/manifest.js
-
-```ruby
-// = link manage_manifest.js
-```
-
 Run command
 
 ```shell
 rails generate devise:install
 rails active_storage:install
 rails manage:install:migrations
+```
+
+Add this line to your app/assets/config/manifest.js
+
+```ruby
+// = link manage_manifest.js
+```
+
+Create file app/models/admin_ability.rb with following code
+```ruby
+class Ability::AdminAbility
+  include CanCan::Ability
+
+  def initialize(user)
+    can :manage, :all
+  end
+end
+
+```
+
+Create file app/controllers/admin_controller.rb with following code
+
+```ruby
+class AdminController < ApplicationController
+  include ManageControllerConcern
+  before_action :authenticate_admin_user!
+
+  def current_ability
+    @current_ability ||= Ability::AdminAbility.new(current_admin_user)
+  end
+
+  def setup_config
+    @title = "UFORSE CMS | UFORSE EDUCATION"
+    @reoutes = []
+  end
+end
+```
+
+Add this line to your app/config/routes.rb inside routes
+
+```ruby
+  namespace :admin do
+    devise_for :users
+  end
 ```
 
 ## Contributing
