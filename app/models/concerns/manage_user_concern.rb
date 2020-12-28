@@ -6,6 +6,7 @@ module ManageUserConcern
     devise :database_authenticatable, :rememberable, :validatable, :trackable
     belongs_to :source, polymorphic: true
 
+    has_one_attached :avatar
 
   end
 end
