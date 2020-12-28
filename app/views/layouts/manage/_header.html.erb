@@ -39,8 +39,8 @@
       <div class="dropdown-menu dropdown-menu-right pt-0">
         <div class="dropdown-divider"></div>
         <%= link_to url_for({ controller: :sessions, action: :destroy }), method: :delete, class: "dropdown-item" do %>
-          <div class="c-icon mfe-2">
-            <i class="fas fa-sign-out-alt"></i> Logout
+          <div class="c-icon mfe-2 d-flex flex-row align-items-center">
+            <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
           </div>
         <% end %>
       </div>
