@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  view_controller: MyString
+  view_action: MyString
+  view_id: MyString
+  view_params: MyString
+
+two:
+  user_id: 1
+  view_controller: MyString
+  view_action: MyString
+  view_id: MyString
+  view_params: MyString

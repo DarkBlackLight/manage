@@ -10,7 +10,7 @@ module ManageResourcesConcern
 
     def index
       @resources_all = @model.accessible_by(current_ability, :read).filterable(params.slice(filter_keys))
-      @resources = @resources_all.order(updated_at: :desc).page(params[:page]).per(10)
+      @resources = @resources_all.order(updated_at: :desc).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
     end
 
     def show

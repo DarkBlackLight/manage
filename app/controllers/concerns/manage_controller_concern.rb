@@ -13,5 +13,13 @@ module ManageControllerConcern
       @routes = []
     end
 
+    def setup_view(current_user)
+      UserView.create(user: current_user,
+                      view_controller: controller_name,
+                      view_action: action_id,
+                      view_id: params[:id],
+                      ip_address: request.remote_ip)
+    end
+
   end
 end
