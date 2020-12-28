@@ -1,4 +1,6 @@
-$(document).on('click', '.c-header-nav-link', function () {
+$(document).on('click', '.c-header-nav-link', function (e) {
+  e.preventDefault();
+
   if ($(this).attr('aria-expanded') === 'true') {
     $(this).parent().removeClass('show');
     $(this).next().removeClass('show');
