@@ -1,5 +1,14 @@
-$(document).on('click', '.c-class-toggler', function () {
+$(document).on('click', '.c-header-nav-link', function () {
+  if ($(this).attr('aria-expanded') === 'true') {
+    $(this).parent().removeClass('show');
+    $(this).next().removeClass('show');
+  } else {
+    $(this).parent().addClass('show');
+    $(this).next().addClass('show');
+  }
+})
 
+$(document).on('click', '.c-class-toggler', function () {
   var data_target = $($(this).data('target'));
   var data_class = $(this).data('class');
 
@@ -12,7 +21,6 @@ $(document).on('click', '.c-class-toggler', function () {
 
 
 $(document).on('click', '.c-sidebar-nav-dropdown-toggle', function () {
-
   var data_target = $($(this).parent());
   var data_class = 'c-show';
 
