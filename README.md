@@ -71,7 +71,14 @@ class AdminController < ApplicationController
 
   def setup_config
     @title = "Title For your App"
-    @routes = []
+    @routes = [
+      {
+        name: "Dashboard",
+        url: url_for({ controller: :dashboard, action: :index }),
+        icon: "fas fa-tachometer-alt",
+        can: (can? :index, :dashboard)
+      }
+    ]
   end
 end
 ```
