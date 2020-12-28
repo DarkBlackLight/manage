@@ -71,7 +71,7 @@ class AdminController < ApplicationController
 
   def setup_config
     @title = "Title For your App"
-    @reoutes = []
+    @routes = []
   end
 end
 ```
@@ -94,6 +94,11 @@ class Admin::DashboardController < AdminController
   private
 end
 
+```
+
+Create empty file app/controllers/views/admin/dashboard/index.html.erb with following code
+
+```ruby
 ```
 
 Create file app/controllers/admin/sessions_controller.rb with following code
