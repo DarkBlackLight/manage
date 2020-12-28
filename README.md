@@ -40,7 +40,7 @@ rails manage_engine:install:migrations
 Add this line to your app/assets/config/manifest.js
 
 ```ruby
-// = link manage_manifest.js
+//= link manage_manifest.js
 ```
 
 Create file app/models/ability/admin_ability.rb with following code
@@ -85,11 +85,34 @@ class Admin::ResourcesController < ApplicationController
 end
 ```
 
+Create file app/controllers/admin/dashboard_controller.rb with following code
+
+```ruby
+class Admin::DashboardController < AdminController
+  def index
+  end
+  private
+end
+
+```
+
+Create file app/controllers/admin/sessions_controller.rb with following code
+
+```ruby
+class Admin::SessionsController < Manage::SessionsController
+  layout 'manage/application'
+end
+
+```
+
 Add this line to your app/config/routes.rb inside routes
 
 ```ruby
-  namespace :admin do
+namespace :admin do
   devise_for :users
+  
+  get 'dashboard/index'
+  root 'dashboard#index'
 end
 ```
 
