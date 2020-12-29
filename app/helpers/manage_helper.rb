@@ -40,6 +40,13 @@ module ManageHelper
     end
   end
 
+  def manage_file_field(form, field, options = {})
+    options[:class] = "#{options[:class]} form-control"
+    tag.div class: 'form-group' do
+      (form.label field) + (form.file_field field, options)
+    end
+  end
+
   def manage_password_field(form, field, options = {})
     options[:class] = "#{options[:class]} form-control"
     tag.div class: 'form-group' do

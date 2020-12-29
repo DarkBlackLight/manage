@@ -134,6 +134,12 @@ Add this line to your app/models/application_record.rb inside ApplicationRecord
   include Filterable
 ```
 
+## Deployment with Docker
+
+```shell
+bundle pack --all
+```
+
 ## Contributing
 
 Contribution directions go here.
