@@ -3,7 +3,7 @@ module ManageUserConcern
 
   included do
 
-    devise :database_authenticatable, :registerable, :rememberable, :validatable, :trackable
+    devise :database_authenticatable, :recoverable, :registerable, :rememberable, :validatable, :trackable
     belongs_to :source, polymorphic: true
 
     has_many :user_views
