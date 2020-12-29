@@ -1,4 +1,4 @@
-module ManageResourcesConcern
+module ManageApiAuthConcern
   extend ActiveSupport::Concern
   included do
 
