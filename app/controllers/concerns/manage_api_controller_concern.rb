@@ -1,4 +1,4 @@
-module ManageControllerConcern
+module ManageApiControllerConcern
   extend ActiveSupport::Concern
   included do
     before_action :setup_user
