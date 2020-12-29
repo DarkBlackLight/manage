@@ -1,4 +1,4 @@
-module ManageResourcesConcern
+module ManageApiResourcesConcern
   extend ActiveSupport::Concern
   included do
     before_action :set_model
