@@ -137,7 +137,8 @@ Add this line to your app/models/application_record.rb inside ApplicationRecord
 ## Deployment with Docker
 
 ```shell
-bundle pack --all
+bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java
+bundle pack --all-platforms
 ```
 
 ## Contributing
