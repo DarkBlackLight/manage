@@ -3,12 +3,12 @@
 class Manage::SessionsController < Devise::SessionsController
   layout 'manage/application'
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :setup_authentication_key, only: [:new]
 
   # GET /resource/sign_in
-  def new
-    @authentication_key = 'email'
-    super
-  end
+  # def new
+  #   super
+  # end
 
   # POST /resource/sign_in
   # def create
@@ -20,7 +20,11 @@ class Manage::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def setup_authentication_key
+    @authentication_key = 'email'
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
