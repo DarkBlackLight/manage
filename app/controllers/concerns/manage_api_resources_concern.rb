@@ -66,6 +66,10 @@ module ManageApiResourcesConcern
     def set_resource
       @resource = @model.find(params[:id])
     end
+
+    def filter_keys
+      []
+    end
   end
 end
 
