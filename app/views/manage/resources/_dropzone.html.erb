@@ -9,7 +9,7 @@
       paramName: '<%= name %>[<%= field rescue 'document' %>]',
       params: {
         <% params.each  do |key, value| %>
-        "<%= name %>[<%= key %>]": <%= value %>,
+          "<%= name %>[<%= key %>]": "<%= value %>",
         <% end %>
         "authenticity_token": $('meta[name=csrf-token]').attr('content')
       },
