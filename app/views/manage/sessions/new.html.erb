@@ -16,8 +16,9 @@
                     </div>
                   </div>
 
-
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' if @authentication_key == 'email' %>
+                  <%= f.text_field :username, autofocus: true, autocomplete: "username", class: 'form-control' if @authentication_key == 'username' %>
+                  
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
