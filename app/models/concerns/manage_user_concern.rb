@@ -11,5 +11,9 @@ module ManageUserConcern
 
     has_one_attached :avatar
 
+    def build_source(params)
+      self.source = source_type.constantize.new(params)
+    end
+
   end
 end
