@@ -108,6 +108,12 @@ function initFormComponents() {
       format: "YYYY-MM-DD HH:mm"
     }
   });
+
+  var clipboard = new ClipboardJS('.btn-clipboard');
+
+  clipboard.on('success', function () {
+    toastr.success("Text Copied", 'Success!')
+  });
 }
 
 
