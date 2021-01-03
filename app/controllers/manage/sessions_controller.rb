@@ -3,7 +3,7 @@
 class Manage::SessionsController < Devise::SessionsController
   layout 'manage/application'
   # before_action :configure_sign_in_params, only: [:create]
-  before_action :setup_authentication_key, only: [:new]
+  before_action :setup_config, only: [:new]
 
   # GET /resource/sign_in
   # def new
@@ -22,7 +22,9 @@ class Manage::SessionsController < Devise::SessionsController
 
   protected
 
-  def setup_authentication_key
+  def setup_config
+    @title = "Welcome To CMS"
+    @description = "Smart for CMS"
     @authentication_key = 'email'
   end
 
