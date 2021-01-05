@@ -9,7 +9,7 @@ module ManageResourcesConcern
     check_authorization
 
     def index
-      @resources_all = @model.accessible_by(current_ability, :read).filterable(params.slice(filter_keys))
+      @resources_all = @model.accessible_by(current_ability, :read).filterable(filter_keys)
       @resources = @resources_all.order(updated_at: :desc).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
     end
 
@@ -63,7 +63,7 @@ module ManageResourcesConcern
     end
 
     def filter_keys
-      []
+      params.slice
     end
 
     def create_success_path
