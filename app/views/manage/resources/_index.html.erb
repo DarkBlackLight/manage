@@ -9,7 +9,7 @@
     <div class="d-flex justify-content-between align-items-center">
       <div class="card-title mb-0"><%= @model_name.capitalize %> List</div>
 
-      <div>
+      <div class=" d-flex flex-row">
         <%= yield :tools if content_for?(:tools) %>
         <%= link_to 'Create', url_for({ action: :new }), class: 'btn btn-success' if (can? :create, @model) %>
       </div>
