@@ -108,17 +108,17 @@ function initFormComponents() {
       format: "YYYY-MM-DD HH:mm"
     }
   });
-
-  var clipboard = new ClipboardJS('.btn-clipboard');
-
-  clipboard.on('success', function () {
-    toastr.success("Text Copied", 'Success!')
-  });
 }
 
 
 $(document).on('turbolinks:load', function () {
   initFormComponents();
+  
+  var clipboard = new ClipboardJS('.btn-clipboard');
+
+  clipboard.on('success', function () {
+    toastr.success("Text Copied", 'Success!')
+  });
 
   var body = $('body');
   window.controller_name = body.data('controller-name');
