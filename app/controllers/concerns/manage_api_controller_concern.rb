@@ -1,6 +1,7 @@
 module ManageApiControllerConcern
   extend ActiveSupport::Concern
   included do
+    skip_before_filter :verify_authenticity_token
     before_action :setup_user
 
     def setup_user
