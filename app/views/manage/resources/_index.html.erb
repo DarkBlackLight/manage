@@ -7,7 +7,7 @@
 <div class="card">
   <div class="card-header">
     <div class="d-flex justify-content-between align-items-center">
-      <div class="card-title mb-0"><%= @model_name.capitalize %> List</div>
+      <div class="card-title mb-0"><%= @model.model_name.human %> <%= t 'manage.resources.list' %></div>
 
       <div class=" d-flex flex-row">
         <%= yield :tools if content_for?(:tools) %>
@@ -18,7 +18,7 @@
   </div>
   <div class="card-body">
     <% if @resources.size == 0 %>
-      <h5 class="text-center my-5">This Table is Empty</h5>
+      <h5 class="text-center my-5 py-3">This Table is Empty</h5>
     <% else %>
       <table class="table table-responsive-sm table-striped">
         <thead>
@@ -36,13 +36,13 @@
               <%= yield resource %>
               <td class="text-right">
                 <% if can? :read, resource %>
-                  <%= link_to (t '.show'), ({ action: 'show', id: resource.id }), class: 'btn btn-info btn-sm' %>
+                  <%= link_to (t 'manage.resources.show'), ({ action: 'show', id: resource.id }), class: 'btn btn-info btn-sm' %>
                 <% end %>
                 <% if can? :update, resource %>
-                  <%= link_to 'Edit', ({ action: 'edit', id: resource.id }), class: 'btn btn-warning btn-sm' %>
+                  <%= link_to (t 'manage.resources.edit'), ({ action: 'edit', id: resource.id }), class: 'btn btn-warning btn-sm' %>
                 <% end %>
                 <% if can? :destroy, resource %>
-                  <%= link_to 'Delete', ({ action: 'destroy', id: resource.id }), method: :delete, data: { confirm: 'Are you sure to delete?' }, class: 'btn btn-danger btn-sm' %>
+                  <%= link_to (t 'manage.resources.delete'), ({ action: 'destroy', id: resource.id }), method: :delete, data: { confirm: (t 'manage.resources.delete_confirmation') }, class: 'btn btn-danger btn-sm' %>
                 <% end %>
               </td>
             </tr>
@@ -51,15 +51,6 @@
         </tbody>
       </table>
     <% end %>
-    <!--    <nav aria-label="Page navigation example">-->
-    <!--      <ul class="pagination justify-content-end">-->
-    <!--        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>-->
-    <!--        <li class="page-item"><a class="page-link" href="#">1</a></li>-->
-    <!--        <li class="page-item"><a class="page-link" href="#">2</a></li>-->
-    <!--        <li class="page-item"><a class="page-link" href="#">3</a></li>-->
-    <!--        <li class="page-item"><a class="page-link" href="#">Next</a></li>-->
-    <!--      </ul>-->
-    <!--    </nav>-->
   </div>
   <div class="card-footer">
     <%= paginate @resources, views_prefix: 'manage' %>

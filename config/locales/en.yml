@@ -1,0 +1,11 @@
+en:
+  manage:
+    resources:
+      show: 'Show'
+      edit: 'Edit'
+      delete: 'Delete'
+      list: 'List'
+      empty_table: 'This Table is Empty.'
+      delete_confirmation: 'Are you sure to delete this record?'
+
+

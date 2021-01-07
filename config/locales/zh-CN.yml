@@ -1,0 +1,11 @@
+zh-CN:
+  manage:
+    resources:
+      show: '查看'
+      edit: '编辑'
+      delete: '删除'
+      list: '列表'
+      empty_table: '当前列表为空.'
+      delete_confirmation: "您确定要删除此项记录吗?"
+
+
