@@ -9,5 +9,10 @@ module ManageApiControllerConcern
         @current_user = nil unless @current_instructor && @current_instructor.token
       end
     end
+
+    rescue_from CanCan::AccessDenied do
+      render json: { data: 'unauthorized' }, status: :unauthorized
+    end
+
   end
 end
