@@ -9,7 +9,7 @@ module ManageControllerConcern
 
     private
 
-    def set_locale
+    def setup_locale
       I18n.locale = params[:locale] || I18n.default_locale
     end
 
