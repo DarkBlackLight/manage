@@ -5,6 +5,13 @@ en:
       edit: 'Edit'
       delete: 'Delete'
       list: 'List'
+      filter: 'Filter'
+      search: 'Search'
+      create: 'Create'
+      actions: 'Actions'
+      info: 'Info'
+      back: 'Back'
+      submit: 'Submit'
       empty_table: 'This Table is Empty.'
       delete_confirmation: 'Are you sure to delete this record?'
 

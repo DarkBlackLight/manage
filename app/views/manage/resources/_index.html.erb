@@ -7,24 +7,24 @@
 <div class="card">
   <div class="card-header">
     <div class="d-flex justify-content-between align-items-center">
-      <div class="card-title mb-0"><%= @model.model_name.human %> <%= t 'manage.resources.list' %></div>
+      <div class="card-title mb-0"><%= @model.model_name.human %><%= t 'manage.resources.list' %></div>
 
       <div class=" d-flex flex-row">
         <%= yield :tools if content_for?(:tools) %>
-        <%= link_to 'Create', url_for({ action: :new }), class: 'btn btn-success' if (can? :create, @model) %>
+        <%= link_to (t 'manage.resources.create'), url_for({ action: :new }), class: 'btn btn-success' if (can? :create, @model) %>
       </div>
 
     </div>
   </div>
   <div class="card-body">
     <% if @resources.size == 0 %>
-      <h5 class="text-center my-5 py-3">This Table is Empty</h5>
+      <h5 class="text-center my-5 py-3"><%= 'manage.resources.empty_table' %></h5>
     <% else %>
       <table class="table table-responsive-sm table-striped">
         <thead>
         <tr>
           <%= yield :th %>
-          <th class="text-right">Actions</th>
+          <th class="text-right"><%= t 'manage.resources.actions' %></th>
         </tr>
         </thead>
         <tbody>
