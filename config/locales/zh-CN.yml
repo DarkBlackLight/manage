@@ -8,6 +8,7 @@ zh-CN:
       filter: '筛选'
       search: '搜索'
       create: '创建'
+      updated_at: '更新时间'
       actions: '操作'
       info: '信息'
       back: '返回'

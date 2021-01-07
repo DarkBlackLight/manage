@@ -8,6 +8,7 @@ en:
       filter: 'Filter'
       search: 'Search'
       create: 'Create'
+      updated_at: 'Updated At'
       actions: 'Actions'
       info: 'Info'
       back: 'Back'
