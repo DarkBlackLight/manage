@@ -4,9 +4,18 @@ module ManageControllerConcern
   included do
 
     layout 'manage/application'
+    before_action :setup_locale
     before_action :setup_config
 
     private
+
+    def set_locale
+      I18n.locale = params[:locale] || I18n.default_locale
+    end
+
+    def default_url_options
+      { locale: I18n.locale }
+    end
 
     def setup_config
       @title = "CMS System"
