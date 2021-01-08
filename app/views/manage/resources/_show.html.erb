@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="<%= (local_assigns.has_key? :html_class) ? html_class : 'col-md-6' %>">
+  <div class="<%= (local_assigns.has_key? :content_class) ? content_class : 'col-md-6' %>">
     <div class="card">
       <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
@@ -25,9 +25,11 @@
     <%= yield :bottom_content if content_for?(:bottom_content) %>
   </div>
 
-  <div class="col-md-6">
-    <%= yield :right_content if content_for?(:right_content) %>
-  </div>
+  <% if content_for?(:right_content) %>
+    <div class="<%= (local_assigns.has_key? :right_content_class) ? right_content_class : 'col-md-6' %>">
+      <%= yield :right_content %>
+    </div>
+  <% end %>
 
 </div>
 
