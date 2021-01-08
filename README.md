@@ -11,11 +11,11 @@ How to use my plugin.
 Add those lines to your application's Gemfile:
 
 ```ruby
-gem 'devise'
-gem 'cancancan'
-gem 'cocoon'
-gem 'kaminari'
-gem 'rails_sortable'
+gem 'devise', "~> 4.7.3"
+gem 'cancancan', "~> 3.2.0"
+gem 'cocoon', "~> 1.2.15"
+gem 'kaminari', "~> 1.2.1"
+gem 'rails_sortable', "~> 1.4.1"
 gem 'manage', git: 'https://github.com/liwuqi95/manage'
 ```
 
@@ -138,7 +138,7 @@ Add this line to your app/models/application_record.rb inside ApplicationRecord
 
 ```shell
 bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java
-bundle pack --all-platforms
+bundle package --all-platforms
 ```
 
 ## Contributing

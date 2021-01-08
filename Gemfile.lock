@@ -2,12 +2,12 @@ PATH
   remote: .
   specs:
     manage (0.1.0)
-      cancancan (>= 3.2.0)
-      cocoon (>= 1.2.15)
-      devise (>= 4.7.3)
-      kaminari (>= 1.2.1)
+      cancancan (~> 3.2.0)
+      cocoon (~> 1.2.15)
+      devise (~> 4.7.3)
+      kaminari (~> 1.2.1)
       rails (~> 6.1.0)
-      rails_sortable (>= 1.4.1)
+      rails_sortable (~> 1.4.1)
 
 GEM
   remote: https://rubygems.org/
