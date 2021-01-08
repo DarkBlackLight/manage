@@ -113,7 +113,7 @@ function initFormComponents() {
 
 $(document).on('turbolinks:load', function () {
   initFormComponents();
-  
+
   var clipboard = new ClipboardJS('.btn-clipboard');
 
   clipboard.on('success', function () {
@@ -125,3 +125,10 @@ $(document).on('turbolinks:load', function () {
   window.action_name = body.data('action-name');
   window.resource_id = body.data('resource-id');
 });
+
+
+$(document).on('click', '.image-preview', function () {
+  var modal = $('#image-preview-modal');
+  $(modal).find('img').attr('src', $(this).attr('src'));
+  $(modal).modal('show')
+})
