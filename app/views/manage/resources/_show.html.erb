@@ -8,6 +8,10 @@
       </div>
 
       <div class="card-body">
+
+
+        <%= yield :content if content_for?(:content) %>
+
         <table class="table table-striped">
           <tbody>
           <%= yield @resource %>
