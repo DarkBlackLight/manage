@@ -9,14 +9,15 @@
 
       <div class="card-body">
 
-
-        <%= yield :content if content_for?(:content) %>
-
-        <table class="table table-striped">
-          <tbody>
-          <%= yield @resource %>
-          </tbody>
-        </table>
+        <% if content_for?(:content) %>
+          <%= yield :content %>
+        <% else %>
+          <table class="table table-striped">
+            <tbody>
+            <%= yield @resource %>
+            </tbody>
+          </table>
+        <% end %>
 
       </div>
     </div>
