@@ -12,6 +12,7 @@ zh-CN:
       actions: '操作'
       info: '信息'
       back: '返回'
+      save: '保存'
       submit: '提交'
       empty_table: '当前列表为空.'
       delete_confirmation: "您确定要删除此项记录吗?"
