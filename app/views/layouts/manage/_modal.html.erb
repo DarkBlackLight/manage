@@ -1,5 +1,5 @@
 <div class="modal fade" id="<%= modal_id %>" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog <%= local_assigns.has_key? :size ? 'modal-' + size : '' rescue nil %>">
+  <div class="modal-dialog <%= (local_assigns.has_key? :size) ? 'modal-' + size : '' %>">
     <div class="modal-content">
       <% if title %>
         <div class="modal-header">
