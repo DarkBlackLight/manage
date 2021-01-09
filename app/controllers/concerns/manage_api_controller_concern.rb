@@ -11,6 +11,14 @@ module ManageApiControllerConcern
       end
     end
 
+    def setup_user_view(current_user)
+      UserView.create(user: current_user,
+                      view_controller: controller_name,
+                      view_action: action_name,
+                      view_params: params.to_s,
+                      ip_address: request.remote_ip)
+    end
+
     rescue_from CanCan::AccessDenied do
       render json: { data: 'unauthorized' }, status: :unauthorized
     end
