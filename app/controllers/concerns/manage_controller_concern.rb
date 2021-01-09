@@ -22,7 +22,7 @@ module ManageControllerConcern
       @routes = []
     end
 
-    def setup_user_view(current_user)
+    def setup_view(current_user)
       UserView.create(user: current_user,
                       view_controller: controller_name,
                       view_action: action_name,
