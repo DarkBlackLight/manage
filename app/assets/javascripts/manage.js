@@ -9,6 +9,8 @@
 //= require coreui/full-calendar
 //= require coreui/dropzone.min
 //= require coreui/clipboard.min
+//= require coreui/konva.min
+
 //= require cocoon
 //= require rails_sortable
 //= require manage-utils
