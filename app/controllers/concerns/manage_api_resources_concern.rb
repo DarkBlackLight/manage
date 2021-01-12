@@ -18,7 +18,7 @@ module ManageApiResourcesConcern
     end
 
     def create
-      @resource = @model.new(resource_params)
+      @resource = { data: @model.new(resource_params) }
 
       if @resource.save
         render json: set_create_success_json(@resource), status: :created
@@ -29,7 +29,7 @@ module ManageApiResourcesConcern
 
     def update
       if @resource.update(resource_params)
-        render json: set_update_success_json(@resource)
+        render json: { data: set_update_success_json(@resource) }
       else
         render json: { data: @resource.errors.full_messages.first }, status: :unprocessable_entity
       end
