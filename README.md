@@ -40,7 +40,7 @@ rails manage_engine:install:migrations
 Add this line to your app/assets/config/manifest.js
 
 ```ruby
-//= link manage_manifest.js
+// = link manage_manifest.js
 ```
 
 Create file app/models/ability/admin_ability.rb with following code
@@ -95,9 +95,11 @@ end
 Create file app/controllers/admin/dashboard_controller.rb with following code
 
 ```ruby
+
 class Admin::DashboardController < AdminController
   def index
   end
+
   private
 end
 
@@ -111,6 +113,7 @@ Create empty file app/controllers/views/admin/dashboard/index.html.erb with foll
 Create file app/controllers/admin/sessions_controller.rb with following code
 
 ```ruby
+
 class Admin::SessionsController < Manage::SessionsController
   layout 'manage/application'
 end
@@ -122,7 +125,7 @@ Add this line to your app/config/routes.rb inside routes
 ```ruby
 namespace :admin do
   devise_for :users
-  
+
   get 'dashboard/index'
   root 'dashboard#index'
 end
@@ -140,6 +143,31 @@ Add this line to your app/models/application_record.rb inside ApplicationRecord
 bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java
 bundle package --all-platforms
 ```
+
+## Remove bootsnap
+
+remove this line in config/boot.rb
+
+```ruby
+require "bootsnap/setup"
+```
+
+remove this line in gemfile
+
+```ruby
+gem 'bootsnap', '>= 1.4.4', require: false
+```
+
+## Remove webpack
+
+```shell
+rm bin/webpack.rb
+rm config/webpacker.yml
+rm config/webpack
+rm -rf app/javascripts
+```
+remove config.webpacker.check_yarn_integrity = false from config/{development, test, production}.rb
+remove webpack from gemfile
 
 ## Contributing
 

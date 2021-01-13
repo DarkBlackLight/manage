@@ -26,4 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "cancancan", "~> 3.2.0"
   spec.add_dependency "kaminari", "~> 1.2.1"
   spec.add_dependency "rails_sortable", "~> 1.4.1"
+  spec.add_dependency "roo", "~> 2.8.3"
+
 end
