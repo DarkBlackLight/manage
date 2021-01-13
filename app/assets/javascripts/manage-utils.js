@@ -111,9 +111,9 @@ function initFormComponents() {
 
 
   $('.timepicker').daterangepicker({
+    singleDatePicker: true,
     timePicker: true,
     timePicker24Hour: true,
-    timePickerIncrement: 1,
     timePickerSeconds: true,
     locale: {
       format: 'HH:mm:ss'
