@@ -70,7 +70,6 @@ module ManageHelper
 
   def manage_time_field(form, field, options = {})
     options[:class] = "#{options[:class]} form-control"
-    options[:value] = "%H:%M:%S"
     tag.div class: 'form-group' do
       (form.label field) + (form.time_field field, options)
     end
