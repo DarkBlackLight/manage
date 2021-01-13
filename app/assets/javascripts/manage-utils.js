@@ -109,19 +109,6 @@ function initFormComponents() {
     }
   });
 
-
-  $('.timepicker').daterangepicker({
-    singleDatePicker: true,
-    timePicker: true,
-    timePicker24Hour: true,
-    timePickerSeconds: true,
-    locale: {
-      format: 'HH:mm:ss'
-    }
-  }).on('show.daterangepicker', function (ev, picker) {
-    picker.container.find(".calendar-table").hide();
-  });
-
 }
 
 
