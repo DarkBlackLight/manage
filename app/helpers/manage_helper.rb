@@ -69,9 +69,9 @@ module ManageHelper
   end
 
   def manage_time_field(form, field, options = {})
-    options[:class] = "#{options[:class]} form-control datetimepicker"
+    options[:class] = "#{options[:class]} form-control timepicker"
     tag.div class: 'form-group' do
-      (form.label field) + (form.time_field field, options)
+      (form.label field) + (form.text_field field, options)
     end
   end
 
