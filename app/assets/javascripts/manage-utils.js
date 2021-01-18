@@ -111,9 +111,22 @@ function initFormComponents() {
 
 }
 
+function initSidebar() {
+  $('.c-sidebar-nav-link').each(function () {
+    var url = new URL($(this).attr('href'))
+    if (url.pathname === window.location.pathname) {
+      $(this).addClass('c-active');
+      $(this).parents('.c-sidebar-nav-dropdown').addClass('c-show');
+    } else {
+      $(this).removeClass('c-active');
+      $(this).parents('.c-sidebar-nav-dropdown').removeClass('c-show');
+    }
+  })
+}
 
 $(document).on('turbolinks:load', function () {
   initFormComponents();
+  initSidebar();
 
   var clipboard = new ClipboardJS('.btn-clipboard');
 
@@ -131,5 +144,5 @@ $(document).on('turbolinks:load', function () {
 $(document).on('click', '.image-preview', function () {
   var modal = $('#image-preview-modal');
   $(modal).find('img').attr('src', $(this).attr('src'));
-  $(modal).modal('show')
+  $(modal).modal('show');
 })
