@@ -112,16 +112,17 @@ function initFormComponents() {
 }
 
 function initSidebar() {
+
+  $('.c-sidebar-nav-link').removeClass('c-active');
+  $('.c-sidebar-nav-dropdown').removeClass('c-show');
+
   $('.c-sidebar-nav-link').each(function () {
-    var url = new URL($(this).attr('href'))
+    var url = new URL($(this).attr('href'));
     if (url.pathname === window.location.pathname) {
       $(this).addClass('c-active');
       $(this).parents('.c-sidebar-nav-dropdown').addClass('c-show');
-    } else {
-      $(this).removeClass('c-active');
-      $(this).parents('.c-sidebar-nav-dropdown').removeClass('c-show');
     }
-  })
+  });
 }
 
 $(document).on('turbolinks:load', function () {
