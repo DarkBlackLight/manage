@@ -84,12 +84,8 @@ function initFormComponents() {
     }
   })
 
-  $(".select2").each(function () {
-    if (!$(this).hasClass("select2-hidden-accessible")) {
-      $(this).select2({
-        theme: 'coreui'
-      });
-    }
+  $(".select2").select2({
+    theme: 'coreui'
   });
 
   $('.datepicker').daterangepicker({
@@ -141,6 +137,9 @@ $(document).on('turbolinks:load', function () {
   window.resource_id = body.data('resource-id');
 });
 
+$(document).on('turbolinks:before-cache', function () {
+  $(".select2").select2('destroy');
+});
 
 $(document).on('click', '.image-preview', function () {
   var modal = $('#image-preview-modal');
