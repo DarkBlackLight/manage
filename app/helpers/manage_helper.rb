@@ -120,7 +120,7 @@ module ManageHelper
   end
 
   def manage_collection_select_tag(label, name, value, collection, value_method, text_method, options = {})
-    options[:class] = "#{options[:class]} form-control select2"
+    options[:class] = "#{options[:class]} form-control select2 "
     manage_tag = (select_tag name, options_from_collection_for_select(collection, value_method, text_method, value), options)
     tag.div class: 'form-group' do
       (label ? ((label_tag label) + manage_tag) : manage_tag)
@@ -128,7 +128,7 @@ module ManageHelper
   end
 
   def manage_select_tag(label, name, value, choices, options = {})
-    options[:class] = "#{options[:class]} form-control select2"
+    options[:class] = "#{options[:class]} form-control select2 "
     manage_tag = (select_tag name, options_for_select(choices, value), options)
     tag.div class: 'form-group' do
       (label ? ((label_tag label) + manage_tag) : manage_tag)
