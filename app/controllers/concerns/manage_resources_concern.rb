@@ -9,7 +9,7 @@ module ManageResourcesConcern
     check_authorization
 
     def index
-      @resources_all = @model.accessible_by(current_ability, :read).filterable(filter_keys)
+      @resources_all = @model.accessible_by(current_ability, :read).filterable(filter_params)
       @resources = @resources_all.order(updated_at: :desc).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
 
       respond_to do |format|
@@ -71,7 +71,7 @@ module ManageResourcesConcern
       @resource = @model.find(params[:id])
     end
 
-    def filter_keys
+    def filter_params
       params.slice
     end
 

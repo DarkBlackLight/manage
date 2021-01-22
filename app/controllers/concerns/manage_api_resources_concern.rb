@@ -8,7 +8,7 @@ module ManageApiResourcesConcern
     check_authorization
 
     def index
-      @resources_all = @model.accessible_by(current_ability, :read).filterable(filter_keys)
+      @resources_all = @model.accessible_by(current_ability, :read).filterable(filter_params)
       @resources = @resources_all.order(updated_at: :desc).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
       render json: { data: set_index_json(@resources), total: @resources_all.size }
     end
@@ -67,7 +67,7 @@ module ManageApiResourcesConcern
       @resource = @model.find(params[:id])
     end
 
-    def filter_keys
+    def filter_params
       params.slice
     end
   end
