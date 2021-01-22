@@ -96,11 +96,11 @@ module ManageResourcesConcern
     end
 
     def create_success_path
-      url_for({ action: :show, id: resource.id })
+      url_for({ action: :show, id: @resource.id })
     end
 
     def update_success_path
-      url_for({ action: :show, id: resource.id })
+      url_for({ action: :show, id: @resource.id })
     end
 
     def destroy_success_path
