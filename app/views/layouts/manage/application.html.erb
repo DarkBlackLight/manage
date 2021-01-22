@@ -46,5 +46,12 @@
   <% end %>
 <% end %>
 
+<% if flash[:success] %>
+  <script>
+    toastr.success("<%= flash[:success] %>", 'Success!')
+  </script>
+  <% flash[:success] = nil %>
+<% end %>
+
 </body>
 </html>
