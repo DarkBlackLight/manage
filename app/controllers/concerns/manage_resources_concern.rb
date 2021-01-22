@@ -14,14 +14,14 @@ module ManageResourcesConcern
 
       respond_to do |format|
         format.html
-        format.json { render json: { data: set_index_json(@resources), total: @resources_all.size } }
+        format.json { render json: { data: set_index_data(@resources), total: @resources_all.size } }
       end
     end
 
     def show
       respond_to do |format|
         format.html
-        format.json { render json: { data: set_show_json(@resource) } }
+        format.json { render json: { data: set_show_data(@resource) } }
       end
     end
 
@@ -36,7 +36,7 @@ module ManageResourcesConcern
       @resource = @model.new(resource_params)
       if @resource.save
         flash[:success] = (t 'create_success') + (t @model_name)
-        render json: { data: create_success_path }, status: :ok
+        render json: { data: create_success_data }, status: :ok
       else
         render json: { data: @resource.errors.full_messages.first }, status: :unprocessable_entity
       end
@@ -45,7 +45,7 @@ module ManageResourcesConcern
     def update
       if @resource.update(resource_params)
         flash[:success] = (t 'update_success') + (t @model_name)
-        render json: { data: update_success_path }, status: :ok
+        render json: { data: update_success_data }, status: :ok
       else
         render json: { data: @resource.errors.full_messages.first }, status: :unprocessable_entity
       end
@@ -55,8 +55,8 @@ module ManageResourcesConcern
       @resource.destroy
       respond_to do |format|
         flash[:success] = (t 'delete_success') + (t @model_name)
-        format.html { redirect_to destroy_success_path, notice: 'Resource was successfully destroyed.' }
-        format.json { render json: { data: destroy_success_path } }
+        format.html { redirect_to destroy_success_data, notice: 'Resource was successfully destroyed.' }
+        format.json { render json: { data: destroy_success_data } }
       end
     end
 
@@ -75,23 +75,23 @@ module ManageResourcesConcern
       params.slice
     end
 
-    def set_show_json(resource)
-      resource.as_json
+    def set_show_data(resource)
+      resource.as_data
     end
 
-    def set_index_json(resource)
-      set_show_json(resource)
+    def set_index_data(resource)
+      set_show_data(resource)
     end
 
-    def create_success_json
+    def create_success_data
       url_for({ action: :show, id: @resource.id })
     end
 
-    def update_success_json
+    def update_success_data
       url_for({ action: :show, id: @resource.id })
     end
 
-    def destroy_success_json
+    def destroy_success_data
       url_for({ action: :index })
     end
   end
