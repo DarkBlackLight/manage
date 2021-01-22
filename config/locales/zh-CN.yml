@@ -16,5 +16,8 @@ zh-CN:
       submit: '提交'
       empty_table: '当前列表为空.'
       delete_confirmation: "您确定要删除此项记录吗?"
+      create_success: '创建成功'
+      update_success: '更新成功'
+      destroy_success: '删除成功'
 
 

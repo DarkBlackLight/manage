@@ -14,14 +14,14 @@ module ManageResourcesConcern
 
       respond_to do |format|
         format.html
-        format.json { render json: { data: set_index_data(@resources), total: @resources_all.size } }
+        format.json { render json: index_json }
       end
     end
 
     def show
       respond_to do |format|
         format.html
-        format.json { render json: { data: set_show_data(@resource) } }
+        format.json { render json: show_json }
       end
     end
 
@@ -35,8 +35,8 @@ module ManageResourcesConcern
     def create
       @resource = @model.new(resource_params)
       if @resource.save
-        flash[:success] = (t 'create_success') + (t @model_name)
-        render json: { data: create_success_data }, status: :ok
+        flash[:success] = (t 'manage.resources.create_success') + (t @model_name)
+        render json: create_json, status: :ok
       else
         render json: { data: @resource.errors.full_messages.first }, status: :unprocessable_entity
       end
@@ -44,8 +44,8 @@ module ManageResourcesConcern
 
     def update
       if @resource.update(resource_params)
-        flash[:success] = (t 'update_success') + (t @model_name)
-        render json: { data: update_success_data }, status: :ok
+        flash[:success] = (t 'manage.resources.update_success') + (t @model_name)
+        render json: update_json, status: :ok
       else
         render json: { data: @resource.errors.full_messages.first }, status: :unprocessable_entity
       end
@@ -54,9 +54,9 @@ module ManageResourcesConcern
     def destroy
       @resource.destroy
       respond_to do |format|
-        flash[:success] = (t 'delete_success') + (t @model_name)
-        format.html { redirect_to destroy_success_data, notice: 'Resource was successfully destroyed.' }
-        format.json { render json: { data: destroy_success_data } }
+        flash[:success] = (t 'manage.resources.destroy_success') + (t @model_name)
+        format.html { redirect_to destroy_success_path, notice: 'Resource was successfully destroyed.' }
+        format.json { render json: destroy_json }
       end
     end
 
@@ -75,23 +75,35 @@ module ManageResourcesConcern
       params.slice
     end
 
-    def set_show_data(resource)
-      resource.as_data
+    def show_json(resource = @resource)
+      { data: resource.as_json }
     end
 
-    def set_index_data(resource)
-      set_show_data(resource)
+    def index_json
+      { data: show_json(@resources), total: @resources_all.size }
     end
 
-    def create_success_data
-      url_for({ action: :show, id: @resource.id })
+    def create_json
+      { data: create_success_path }
     end
 
-    def update_success_data
-      url_for({ action: :show, id: @resource.id })
+    def update_json
+      { data: update_success_path }
     end
 
-    def destroy_success_data
+    def destroy_json
+      { data: destroy_success_path }
+    end
+
+    def create_success_path
+      url_for({ action: :show, id: resource.id })
+    end
+
+    def update_success_path
+      url_for({ action: :show, id: resource.id })
+    end
+
+    def destroy_success_path
       url_for({ action: :index })
     end
   end
