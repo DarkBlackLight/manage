@@ -14,6 +14,7 @@ zh-CN:
       back: '返回'
       save: '保存'
       submit: '提交'
+      close: '关闭'
       empty_table: '当前列表为空.'
       delete_confirmation: "您确定要删除此项记录吗?"
       create_success: '创建成功'
