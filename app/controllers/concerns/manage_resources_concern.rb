@@ -11,9 +11,18 @@ module ManageResourcesConcern
     def index
       @resources_all = @model.accessible_by(current_ability, :read).filterable(filter_keys)
       @resources = @resources_all.order(updated_at: :desc).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
+
+      respond_to do |format|
+        format.html
+        format.json { render json: { data: set_index_json(@resources), total: @resources_all.size } }
+      end
     end
 
     def show
+      respond_to do |format|
+        format.html
+        format.json { render json: { data: set_show_json(@resource) } }
+      end
     end
 
     def new
@@ -66,15 +75,23 @@ module ManageResourcesConcern
       params.slice
     end
 
-    def create_success_path
+    def set_show_json(resource)
+      resource.as_json
+    end
+
+    def set_index_json(resource)
+      set_show_json(resource)
+    end
+
+    def create_success_json
       url_for({ action: :show, id: @resource.id })
     end
 
-    def update_success_path
+    def update_success_json
       url_for({ action: :show, id: @resource.id })
     end
 
-    def destroy_success_path
+    def destroy_success_json
       url_for({ action: :index })
     end
   end
