@@ -12,8 +12,12 @@ en:
       actions: 'Actions'
       info: 'Info'
       back: 'Back'
+      save: 'Save'
       submit: 'Submit'
+      close: 'Close'
       empty_table: 'This Table is Empty.'
       delete_confirmation: 'Are you sure to delete this record?'
-
+      create_success: 'Successfully Created'
+      update_success: 'Successfully Updated'
+      destroy_success: 'Successfully Destroyed'
 

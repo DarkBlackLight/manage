@@ -35,7 +35,7 @@ module ManageResourcesConcern
     def create
       @resource = @model.new(resource_params)
       if @resource.save
-        flash[:success] = (t 'manage.resources.create_success') + (t @model.model_name.human)
+        flash[:success] = "#{t 'manage.resources.create_success'} #{@model.model_name.human}"
         render json: create_json, status: :ok
       else
         render json: { data: @resource.errors.full_messages.first }, status: :unprocessable_entity
@@ -44,7 +44,7 @@ module ManageResourcesConcern
 
     def update
       if @resource.update(resource_params)
-        flash[:success] = (t 'manage.resources.update_success') + (t @model.model_name.human)
+        flash[:success] = "#{t 'manage.resources.update_success'} #{@model.model_name.human}"
         render json: update_json, status: :ok
       else
         render json: { data: @resource.errors.full_messages.first }, status: :unprocessable_entity
@@ -54,7 +54,7 @@ module ManageResourcesConcern
     def destroy
       @resource.destroy
       respond_to do |format|
-        flash[:success] = (t 'manage.resources.destroy_success') + (t @model.model_name.human)
+        flash[:success] = "#{t 'manage.resources.destroy_success'} #{@model.model_name.human}"
         format.html { redirect_to destroy_success_path, notice: 'Resource was successfully destroyed.' }
         format.json { render json: destroy_json }
       end
