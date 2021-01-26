@@ -135,9 +135,9 @@ $(document).on('turbolinks:load', function () {
   window.resource_id = body.data('resource-id');
 });
 
-// $(document).on('turbolinks:before-cache', function () {
-//   $(".select2").select2('destroy');
-// });
+$(document).on('turbolinks:before-cache', function () {
+  $("select.select2").select2('destroy');
+});
 
 $(document).on('click', '.image-preview', function () {
   var modal = $('#image-preview-modal');
