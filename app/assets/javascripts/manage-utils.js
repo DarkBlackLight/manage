@@ -84,12 +84,7 @@ function initFormComponents() {
     }
   })
 
-  $(".select2").each(function () {
-    if (!$(this).hasClass("select2-hidden-accessible")) {
-      $(this).select2({theme: 'coreui'});
-    }
-  })
-
+  $(document).find('.select2').not('.select2-hidden-accessible').select2({theme: 'coreui'});
 
   $('.datepicker').daterangepicker({
     singleDatePicker: true,
