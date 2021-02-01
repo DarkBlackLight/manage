@@ -105,7 +105,7 @@ end
 
 ```
 
-Create empty file app/controllers/views/admin/dashboard/index.html.erb with following code
+Create empty file app/views/admin/dashboard/index.html.erb with following code
 
 ```ruby
 ```
