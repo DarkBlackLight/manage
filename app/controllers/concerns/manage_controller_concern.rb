@@ -6,9 +6,14 @@ module ManageControllerConcern
 
     layout 'manage/application'
     before_action :setup_locale
+    before_action :setup_routes
     before_action :setup_manage_config
 
     private
+
+    def setup_locale
+      I18n.locale = params[:locale] || I18n.default_locale
+    end
 
     def setup_manage_config
       @config = setup_config
@@ -23,8 +28,8 @@ module ManageControllerConcern
       # }
     end
 
-    def setup_locale
-      I18n.locale = params[:locale] || I18n.default_locale
+    def setup_routes
+      @routes = []
     end
 
     def default_url_options
