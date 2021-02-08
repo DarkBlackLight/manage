@@ -1,13 +1,27 @@
 module ManageControllerConcern
   extend ActiveSupport::Concern
   include ManageHelper
+
   included do
 
     layout 'manage/application'
     before_action :setup_locale
-    before_action :setup_config
+    before_action :setup_manage_config
 
     private
+
+    def setup_manage_config
+      @config = setup_config
+      # {
+      #   scope: 'manage',
+      #   title: 'CMS Admin System',
+      #   sessions: {
+      #     authentication_key: 'email',
+      #     title: 'Welcome To CMS',
+      #     description: 'This is a Description'
+      #   }
+      # }
+    end
 
     def setup_locale
       I18n.locale = params[:locale] || I18n.default_locale
@@ -15,19 +29,6 @@ module ManageControllerConcern
 
     def default_url_options
       { locale: I18n.locale }
-    end
-
-    def setup_config
-      @routes = []
-      @config = {
-        scope: 'manage',
-        title: 'CMS Admin System',
-        sessions: {
-          authentication_key: 'email',
-          title: 'Welcome To CMS',
-          description: 'This is a Description'
-        }
-      }
     end
 
     def setup_view(current_user)

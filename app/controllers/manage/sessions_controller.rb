@@ -1,5 +1,8 @@
-# frozen_string_literal: true
-
 class Manage::SessionsController < Devise::SessionsController
-  include ManageControllerConcern
+  layout 'manage/application'
+  before_action :setup_manage_config
+
+  def setup_manage_config
+    @config = setup_config
+  end
 end
