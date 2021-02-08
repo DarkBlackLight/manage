@@ -57,15 +57,36 @@ end
 
 ```
 
+Create file app/helpers/admin_helper.rb with following code
+
+```ruby
+
+module AdminHelper
+  def setup_config
+    {
+      scope: 'manage',
+      title: 'CMS Admin System',
+      sessions: {
+        authentication_key: 'email',
+        title: 'Welcome To CMS',
+        description: 'This is a Description'
+      }
+    }
+  end
+end
+
+```
+
 Create file app/controllers/admin_controller.rb with following code
 
 ```ruby
 
 class AdminController < ApplicationController
+  include AdminHelper
   include ManageControllerConcern
   before_action :authenticate_admin_user!
   before_action :setup_user_view
-  
+
   def current_ability
     @current_ability ||= Ability::AdminAbility.new(current_admin_user)
   end
@@ -73,9 +94,8 @@ class AdminController < ApplicationController
   def setup_user_view
     setup_view(current_admin_user)
   end
-  
-  def setup_config
-    @title = "Title For your App"
+
+  def setup_routes
     @routes = [
       {
         name: "Dashboard",
@@ -171,8 +191,9 @@ rm config/webpacker.yml
 rm config/webpack
 rm -rf app/javascripts
 ```
-remove config.webpacker.check_yarn_integrity = false from config/{development, test, production}.rb
-remove webpack from gemfile
+
+remove config.webpacker.check_yarn_integrity = false from config/{development, test, production}.rb remove webpack from
+gemfile
 
 ## Contributing
 
