@@ -64,11 +64,16 @@ Create file app/controllers/admin_controller.rb with following code
 class AdminController < ApplicationController
   include ManageControllerConcern
   before_action :authenticate_admin_user!
-
+  before_action :setup_user_view
+  
   def current_ability
     @current_ability ||= Ability::AdminAbility.new(current_admin_user)
   end
 
+  def setup_user_view
+    setup_view(current_admin_user)
+  end
+  
   def setup_config
     @title = "Title For your App"
     @routes = [

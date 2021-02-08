@@ -18,16 +18,19 @@ module ManageControllerConcern
     end
 
     def setup_config
-      @title = "CMS System"
       @routes = []
+      @config = {
+        scope: 'manage',
+        title: 'CMS Admin System'
+      }
     end
 
     def setup_view(current_user)
       UserView.create!(user: current_user,
-                      view_controller: controller_name,
-                      view_action: action_name,
-                      view_params: params.to_s,
-                      ip_address: request.remote_ip)
+                       view_controller: controller_name,
+                       view_action: action_name,
+                       view_params: params.to_s,
+                       ip_address: request.remote_ip)
     end
 
   end
