@@ -21,7 +21,12 @@ module ManageControllerConcern
       @routes = []
       @config = {
         scope: 'manage',
-        title: 'CMS Admin System'
+        title: 'CMS Admin System',
+        sessions: {
+          authentication_key: 'email',
+          title: 'Welcome To CMS',
+          description: 'This is a Description'
+        }
       }
     end
 

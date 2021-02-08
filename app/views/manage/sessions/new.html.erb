@@ -16,8 +16,8 @@
                     </div>
                   </div>
 
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' if @authentication_key == 'email' %>
-                  <%= f.text_field :username, autofocus: true, autocomplete: "username", class: 'form-control' if @authentication_key == 'username' %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' if @config[:sessions][:authentication_key] == 'email' %>
+                  <%= f.text_field :username, autofocus: true, autocomplete: "username", class: 'form-control' if @config[:sessions][:authentication_key] == 'username' %>
 
                 </div>
                 <div class="input-group mb-4">
@@ -46,9 +46,9 @@
           <div class="card text-white bg-primary py-3 d-md-down-none" style="width:44%">
             <div class="card-body text-center">
               <div>
-                <%= image_tag asset_url("logo.png"), width: '40%' %>
-                <h2 class="mt-4 mb-3"><%= @title %></h2>
-                <p><%= @description %></p>
+                <%= image_tag asset_url("logo.png"), width: '36%' %>
+                <h2 class="mt-4 mb-3"><%= @config[:sessions][:title] %></h2>
+                <p><%= @config[:sessions][:description] %></p>
               </div>
             </div>
           </div>
