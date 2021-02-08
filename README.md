@@ -140,6 +140,7 @@ Create file app/controllers/admin/sessions_controller.rb with following code
 ```ruby
 
 class Admin::SessionsController < Manage::SessionsController
+  include AdminHelper
   layout 'manage/application'
 end
 

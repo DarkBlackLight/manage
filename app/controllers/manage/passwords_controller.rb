@@ -2,34 +2,9 @@
 
 class Manage::PasswordsController < Devise::PasswordsController
   layout 'manage/application'
-  # GET /resource/password/new
-  # def new
-  #   super
-  # end
+  before_action :setup_manage_config
 
-  # POST /resource/password
-  # def create
-  #   super
-  # end
-
-  # GET /resource/password/edit?reset_password_token=abcdef
-  # def edit
-  #   super
-  # end
-
-  # PUT /resource/password
-  # def update
-  #   super
-  # end
-
-  # protected
-
-  # def after_resetting_password_path_for(resource)
-  #   super(resource)
-  # end
-
-  # The path used after sending reset password instructions
-  # def after_sending_reset_password_instructions_path_for(resource_name)
-  #   super(resource_name)
-  # end
+  def setup_manage_config
+    @config = setup_config
+  end
 end
