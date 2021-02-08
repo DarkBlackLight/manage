@@ -64,7 +64,7 @@ Create file app/helpers/admin_helper.rb with following code
 module AdminHelper
   def setup_config
     {
-      scope: 'manage',
+      scope: 'admin',
       title: 'CMS Admin System',
       sessions: {
         authentication_key: 'email',
