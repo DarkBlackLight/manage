@@ -3,6 +3,9 @@
 //= require coreui/jquery.min
 //= require coreui/jquery-ui.min
 //= require rails-ujs
+//= require cocoon
+//= require rails_sortable
+
 //= require coreui/toastr
 //= require coreui/moment.min
 //= require coreui/select2.min
@@ -12,11 +15,6 @@
 //= require coreui/clipboard.min
 //= require coreui/konva.min
 
-//= require cocoon
-//= require rails_sortable
-//= require manage-utils
-//= require manage-customize.js
-
-
+//= require coreui/utils.js
 
 
