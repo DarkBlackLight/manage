@@ -6,7 +6,7 @@
     </div>
   </button>
   <a class="c-header-brand d-lg-none c-header-brand-sm-up-center" href="#">
-    <%= image_tag asset_url("logo.png"), height: 40 %>
+    <%= image_tag "/#{@config[:scope]}/images/logo.png", height: 40 %>
   </a>
   <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
     <div class="c-icon c-icon-lg">
@@ -39,7 +39,7 @@
     <li class="c-header-nav-item dropdown">
       <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <div class="c-avatar">
-          <%= image_tag asset_url("avatar.png"), class: "c-avatar-img" %>
+          <%= image_tag "/#{@config[:scope]}/images/avatar.png", class: "c-avatar-img" %>
         </div>
       </a>
       <div class="dropdown-menu dropdown-menu-right pt-0">
