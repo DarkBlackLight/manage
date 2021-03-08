@@ -1,7 +1,0 @@
-@import '../vars';
-
-.#{$namespace-prefix}-box {
-  &[data-animation='fade'][data-state='hidden'] {
-    opacity: 0;
-  }
-}
