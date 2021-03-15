@@ -14,6 +14,7 @@ module ManageResourcesConcern
 
       respond_to do |format|
         format.html
+        format.xlsx
         format.json { render json: index_json }
       end
     end
