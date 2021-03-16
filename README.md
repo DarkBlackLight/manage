@@ -16,6 +16,8 @@ gem 'cancancan', "~> 3.2.0"
 gem 'cocoon', "~> 1.2.15"
 gem 'kaminari', "~> 1.2.1"
 gem 'rails_sortable', "~> 1.4.1"
+gem 'caxlsx', "~> 3.0.4"
+gem 'caxlsx_rails', "~> 0.6.2"
 gem 'manage', git: 'https://github.com/liwuqi95/manage'
 ```
 
