@@ -12,9 +12,9 @@ module ManageResourcesConcern
       @resources_all = @model.accessible_by(current_ability, :read).filterable(filter_params)
       @resources = @resources_all.order(updated_at: :desc).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
 
-      if params[:count_period] && params[:count_period_field]
+      if params[:count_period] && params[:count_period_field] && params[:count_period_last]
         respond_to do |format|
-          format.json { render json: { data: @resources_all.group_by_period(:day, :created_at).count } }
+          format.json { render json: { data: @resources_all.group_by_period(:day, :created_at, last: params[:count_period_last]).count } }
         end
       else
         respond_to do |format|
