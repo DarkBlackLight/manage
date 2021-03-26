@@ -14,7 +14,7 @@ module ManageResourcesConcern
 
       if params[:count_period] && params[:count_period_field]
         respond_to do |format|
-          format.json { render json: @resources_all.group_by_period(:day, :created_at).count }
+          format.json { render json: { data: @resources_all.group_by_period(:day, :created_at).count } }
         end
       else
         respond_to do |format|
