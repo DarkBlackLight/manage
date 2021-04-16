@@ -11,7 +11,7 @@ module ManageApiAuthConcern
     end
 
     def validate_username_password
-      @resource = User.find_by_email(params[:user][:username])
+      @resource = User.find_by_username(params[:user][:username])
 
       if @resource && @resource.password == params[:user][:password]
         @resource.update_columns({ token: Digest::SHA1.hexdigest(Time.zone.now.to_s + @resource.full_name), token_created_at: Time.now })
