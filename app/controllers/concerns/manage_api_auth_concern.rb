@@ -13,8 +13,8 @@ module ManageApiAuthConcern
     def validate_username_password
       @resource = User.find_by_username(params[:user][:username])
 
-      if @resource && @resource.password == params[:user][:password]
-        @resource.update_columns({ token: Digest::SHA1.hexdigest(Time.zone.now.to_s + @resource.full_name), token_created_at: Time.now })
+      if @resource && @resource.valid_password?(params[:user][:password])
+        @resource.update_columns({ token: Digest::SHA1.hexdigest(Time.zone.now.to_s + @resource.username), token_created_at: Time.now })
         render json: set_show_json(@resource), status: :ok
       else
         render json: { data: 'Password is not valid' }, status: :unprocessable_entity
@@ -24,8 +24,8 @@ module ManageApiAuthConcern
     def validate_email_password
       @resource = User.find_by_email(params[:user][:email])
 
-      if @resource && @resource.password == params[:user][:password]
-        @resource.update_columns({ token: Digest::SHA1.hexdigest(Time.zone.now.to_s + @resource.full_name), token_created_at: Time.now })
+      if @resource && @resource.valid_password?(params[:user][:password])
+        @resource.update_columns({ token: Digest::SHA1.hexdigest(Time.zone.now.to_s + @resource.email), token_created_at: Time.now })
         render json: set_show_json(@resource), status: :ok
       else
         render json: { data: 'Password is not valid' }, status: :unprocessable_entity
