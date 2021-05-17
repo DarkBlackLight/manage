@@ -22,5 +22,19 @@ zh-CN:
       destroy_success: '删除成功'
       selection: '选择'
       destroy_all_selected: '删除全部选中'
-
-
+  views:
+    pagination:
+      first: "&laquo; 首页"
+      last: "末页 &raquo;"
+      previous: "&lsaquo; 上一页"
+      next: "下一页 &rsaquo;"
+      truncate: "&hellip;"
+    helpers:
+      page_entries_info:
+        one_page:
+          display_entries:
+            zero: "暂时没有相关记录"
+            one: "正在显示第 <b>1</b> 个"
+            other: "正在显示 <b>全部 %{count}</b> 个"
+        more_pages:
+          display_entries: "当前显示为第 <b>%{first}&nbsp;-&nbsp;%{last}</b> 个，共 <b>%{total}</b> 个"
