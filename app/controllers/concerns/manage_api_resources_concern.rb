@@ -9,7 +9,7 @@ module ManageApiResourcesConcern
 
     def index
       @resources_all = @model.accessible_by(current_ability, :read).filterable(filter_params)
-      @resources = @resources_all.order(updated_at: :desc).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
+      @resources = @resources_all.order(index_order_by).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
       render json: { data: set_index_json(@resources), total: @resources_all.size }
     end
 
@@ -48,6 +48,10 @@ module ManageApiResourcesConcern
 
     def set_index_json(resource)
       set_show_json(resource)
+    end
+
+    def index_order_by
+      'updated_at desc'
     end
 
     def set_create_success_json(resource)
