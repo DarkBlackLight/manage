@@ -43,7 +43,7 @@ module ManageApiAuthConcern
     end
 
     def set_show_json(resource)
-      resource.as_json(only: [:id, :first_name, :last_name, :full_name, :email, :username, :token])
+      resource.as_json(only: [:id, :first_name, :last_name, :full_name, :email, :username, :token, :source_type, :source_id])
     end
 
   end
