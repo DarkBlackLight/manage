@@ -20,4 +20,6 @@ en:
       create_success: 'Successfully Created'
       update_success: 'Successfully Updated'
       destroy_success: 'Successfully Destroyed'
+      selection: 'Selection'
+      destroy_all_selected: 'Destroy Selected'
 
