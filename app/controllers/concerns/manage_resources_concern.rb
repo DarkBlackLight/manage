@@ -93,6 +93,10 @@ module ManageResourcesConcern
       'updated_at desc'
     end
 
+    def index_can_create
+      true
+    end
+
     def create_json
       { data: create_success_path }
     end
