@@ -11,7 +11,7 @@ module ManageResourcesConcern
     def index
       @resources_all = @model.accessible_by(current_ability, :read).filterable(filter_params)
       @resources = @resources_all.order(index_order_by).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
-
+      @can_create = true
       if params[:count_period] && params[:count_period_field] && params[:count_period_last]
         respond_to do |format|
           format.json { render json: { data: @resources_all.group_by_period(params[:count_period], params[:count_period_field], last: params[:count_period_last]).count } }
@@ -91,10 +91,6 @@ module ManageResourcesConcern
 
     def index_order_by
       'updated_at desc'
-    end
-
-    def index_can_create
-      true
     end
 
     def create_json
