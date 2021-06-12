@@ -1,4 +1,4 @@
-class Manage::PasswordsController < Devise::PasswordsController
+class Manage::InvitationsController < Devise::InvitationsController
   layout 'manage/application'
   before_action :setup_manage_config
 
