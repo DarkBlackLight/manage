@@ -34,7 +34,7 @@ module ManageApiAuthConcern
 
     def logout
       if @current_user
-        @resource.update_columns({ token: nil, token_created_at: Time.now })
+        @current_user.update_columns({ token: nil, token_created_at: Time.now })
         render json: set_show_json(@current_user)
       else
         render json: { data: 'Unauthorized' }, status: :unprocessable_entity
