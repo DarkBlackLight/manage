@@ -14,7 +14,7 @@ module ManageApiResourcesConcern
     end
 
     def show
-      render json: set_show_json(@resource)
+      render json: { data: set_show_json(@resource) }
     end
 
     def create
