@@ -71,6 +71,7 @@ module ManageResourcesConcern
 
     def set_model
       @model = controller_name.classify.constantize
+      @model_name = controller_name.classify.downcase
     end
 
     def set_resource
@@ -90,7 +91,7 @@ module ManageResourcesConcern
     end
 
     def index_order_by
-      @model_name.downcase.pluralize + '.updated_at desc'
+      @model_name.pluralize + '.updated_at desc'
     end
 
     def create_json
