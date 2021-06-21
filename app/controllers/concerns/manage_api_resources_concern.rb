@@ -51,7 +51,7 @@ module ManageApiResourcesConcern
     end
 
     def index_order_by
-      'updated_at desc'
+      @model_name.downcase.pluralize + '.updated_at desc'
     end
 
     def set_create_success_json(resource)
