@@ -90,7 +90,7 @@ module ManageResourcesConcern
     end
 
     def index_order_by
-      'updated_at desc'
+      @model_name.downcase.pluralize + '.updated_at desc'
     end
 
     def create_json
