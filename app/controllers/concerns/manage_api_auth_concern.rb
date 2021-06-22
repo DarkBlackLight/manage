@@ -14,7 +14,7 @@ module ManageApiAuthConcern
       @resource = User.find_by_username(params[:user][:username])
 
       if @resource && @resource.valid_password?(params[:user][:password])
-        @resource.update_columns({ token: Digest::SHA1.hexdigest(Time.zone.now.to_s + @resource.username), token_created_at: Time.now })
+        setup_token(@resource)
         render json: set_show_json(@resource), status: :ok
       else
         render json: { data: 'Password is not valid' }, status: :unprocessable_entity
@@ -25,7 +25,7 @@ module ManageApiAuthConcern
       @resource = User.find_by_email(params[:user][:email])
 
       if @resource && @resource.valid_password?(params[:user][:password])
-        @resource.update_columns({ token: Digest::SHA1.hexdigest(Time.zone.now.to_s + @resource.email), token_created_at: Time.now })
+        setup_token(@resource)
         render json: set_show_json(@resource), status: :ok
       else
         render json: { data: 'Password is not valid' }, status: :unprocessable_entity
@@ -53,6 +53,10 @@ module ManageApiAuthConcern
 
     def set_show_json(resource)
       resource.as_json(only: [:id, :first_name, :last_name, :full_name, :email, :username, :token, :source_type, :source_id])
+    end
+
+    def setup_token(resource)
+      resource.update_columns({ token: Digest::SHA1.hexdigest(Time.zone.now.to_s + rand(1000).to_s), token_created_at: Time.now })
     end
 
   end
