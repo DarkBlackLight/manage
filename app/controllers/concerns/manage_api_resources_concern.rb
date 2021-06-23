@@ -10,18 +10,18 @@ module ManageApiResourcesConcern
     def index
       @resources_all = @model.accessible_by(current_ability, :read).filterable(filter_params)
       @resources = @resources_all.order(index_order_by).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
-      render json: { data: set_index_json(@resources), total: @resources_all.size }
+      render json: index_json
     end
 
     def show
-      render json: { data: set_show_json(@resource) }
+      render json: show_json
     end
 
     def create
       @resource = @model.new(resource_params)
 
       if @resource.save
-        render json: { data: set_create_success_json(@resource) }, status: :created
+        render json: create_json, status: :created
       else
         render json: { data: @resource.errors.full_messages.first }, status: :unprocessable_entity
       end
@@ -29,7 +29,7 @@ module ManageApiResourcesConcern
 
     def update
       if @resource.update(resource_params)
-        render json: { data: set_update_success_json(@resource) }
+        render json: update_json, status: :ok
       else
         render json: { data: @resource.errors.full_messages.first }, status: :unprocessable_entity
       end
@@ -37,34 +37,13 @@ module ManageApiResourcesConcern
 
     def destroy
       @resource.destroy
-      render json: { data: 'success' }, status: :ok
+      render json: destroy_json, status: :ok
     end
 
     private
 
-    def set_show_json(resource)
-      resource.as_json
-    end
-
-    def set_index_json(resource)
-      set_show_json(resource)
-    end
-
-    def index_order_by
-      @model.table_name + '.updated_at desc'
-    end
-
-    def set_create_success_json(resource)
-      set_show_json(resource)
-    end
-
-    def set_update_success_json(resource)
-      set_show_json(resource)
-    end
-
     def set_model
       @model = controller_name.classify.constantize
-      @model_name = controller_name.classify.downcase
     end
 
     def set_resource
@@ -73,6 +52,30 @@ module ManageApiResourcesConcern
 
     def filter_params
       params.slice
+    end
+
+    def show_json(resource = @resource)
+      { data: resource.as_json }
+    end
+
+    def index_json
+      { data: show_json(@resources), total: @resources_all.size }
+    end
+
+    def index_order_by
+      @model.table_name + '.updated_at desc'
+    end
+
+    def create_json(resource = @resource)
+      show_json(resource)
+    end
+
+    def update_json(resource = @resource)
+      show_json(resource)
+    end
+
+    def destroy_json
+      { data: 'success' }
     end
   end
 end

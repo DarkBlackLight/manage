@@ -35,7 +35,6 @@ module ManageApiAuthConcern
     def logout
       if @current_user
         @current_user.update_columns({ token: nil, token_created_at: Time.now })
-        @current_user.reload
         render json: set_show_json(@current_user)
       else
         render json: { data: 'Unauthorized' }, status: :unprocessable_entity
@@ -58,7 +57,6 @@ module ManageApiAuthConcern
 
     def setup_token(resource)
       resource.update_columns({ token: Digest::SHA1.hexdigest(Time.zone.now.to_s + rand(1000).to_s), token_created_at: Time.now })
-      resource.reload
     end
 
   end
