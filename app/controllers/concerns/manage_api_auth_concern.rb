@@ -57,6 +57,7 @@ module ManageApiAuthConcern
 
     def setup_token(resource)
       resource.update_columns({ token: Digest::SHA1.hexdigest(Time.zone.now.to_s + rand(1000).to_s), token_created_at: Time.now })
+      resource.reload
     end
 
   end
