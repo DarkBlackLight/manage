@@ -10,7 +10,7 @@ module ManageApiResourcesConcern
     def index
       @resources_all = @model.accessible_by(current_ability, :read).filterable(filter_params)
       @resources = @resources_all.order(index_order_by).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
-      render json: get_index_json(@resource, @resources_all)
+      render json: get_index_json(@resources, @resources_all)
     end
 
     def show
