@@ -4,7 +4,7 @@ module ManageApiAuthConcern
 
     def current
       if @current_user
-        render json: set_show_json(@current_user)
+        render json: { data: set_show_json(@current_user) }
       else
         render json: { data: 'Unauthorized' }, status: :unprocessable_entity
       end
@@ -15,7 +15,7 @@ module ManageApiAuthConcern
 
       if @resource && @resource.valid_password?(params[:user][:password])
         setup_token(@resource)
-        render json: set_show_json(@resource), status: :ok
+        render json: { data: set_show_json(@resource) }, status: :ok
       else
         render json: { data: 'Password is not valid' }, status: :unprocessable_entity
       end
@@ -26,7 +26,7 @@ module ManageApiAuthConcern
 
       if @resource && @resource.valid_password?(params[:user][:password])
         setup_token(@resource)
-        render json: set_show_json(@resource), status: :ok
+        render json: { data: set_show_json(@resource) }, status: :ok
       else
         render json: { data: 'Password is not valid' }, status: :unprocessable_entity
       end
@@ -35,7 +35,7 @@ module ManageApiAuthConcern
     def logout
       if @current_user
         @current_user.update_columns({ token: nil, token_created_at: Time.now })
-        render json: set_show_json(@current_user)
+        render json: { data: set_show_json(@current_user) }
       else
         render json: { data: 'Unauthorized' }, status: :unprocessable_entity
       end
