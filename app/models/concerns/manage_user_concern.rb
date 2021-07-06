@@ -15,5 +15,8 @@ module ManageUserConcern
       self.source = source_type.constantize.new(params)
     end
 
+    def email_changed?
+      false
+    end
   end
 end
