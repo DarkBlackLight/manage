@@ -11,7 +11,7 @@ module ManageApiAuthConcern
     end
 
     def validate_username_password
-      @resource = User.where(username: params[:user][:username], password: params[:user][:source_type]).first
+      @resource = User.where(username: params[:user][:username], source_type: params[:user][:source_type]).first
 
       if @resource && @resource.valid_password?(params[:user][:password])
         setup_token(@resource)
@@ -22,7 +22,7 @@ module ManageApiAuthConcern
     end
 
     def validate_email_password
-      @resource = User.where(email: params[:user][:email], password: params[:user][:source_type]).first
+      @resource = User.where(email: params[:user][:email], source_type: params[:user][:source_type]).first
 
       if @resource && @resource.valid_password?(params[:user][:password])
         setup_token(@resource)
