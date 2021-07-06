@@ -11,7 +11,7 @@ module ManageApiAuthConcern
     end
 
     def validate_username_password
-      @resource = User.find_by_username(params[:user][:username])
+      @resource = User.where(username: params[:user][:username], password: params[:user][:source_type]).first
 
       if @resource && @resource.valid_password?(params[:user][:password])
         setup_token(@resource)
@@ -22,7 +22,7 @@ module ManageApiAuthConcern
     end
 
     def validate_email_password
-      @resource = User.find_by_email(params[:user][:email])
+      @resource = User.where(email: params[:user][:email], password: params[:user][:source_type]).first
 
       if @resource && @resource.valid_password?(params[:user][:password])
         setup_token(@resource)
@@ -48,11 +48,11 @@ module ManageApiAuthConcern
     end
 
     def set_index_json(resources)
-      resources.as_json(only: [:id, :first_name, :last_name, :full_name, :email, :username, :token])
+      resources.as_json(only: [:id, :first_name, :last_name, :full_name, :email, :username, :token, :source_type, :source_id])
     end
 
     def set_show_json(resource)
-      resource.as_json(only: [:id, :first_name, :last_name, :full_name, :email, :username, :token, :source_type, :source_id])
+      resource.as_json(only: [:id, :first_name, :last_name, :full_name, :email, :username, :token, :source_type])
     end
 
     def setup_token(resource)
