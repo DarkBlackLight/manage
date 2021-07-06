@@ -11,6 +11,8 @@ module ManageUserConcern
 
     has_one_attached :avatar
 
+    validates :email, uniqueness: { scope: :source_type }
+
     def build_source(params)
       self.source = source_type.constantize.new(params)
     end
