@@ -195,23 +195,13 @@ Add this line to your app/models/application_record.rb inside ApplicationRecord
 Use the following command to create the admn table
 
 ```bash
-$ rails g model admin --force
+$ rails g model admin full_name:string role:integer --force
 ```
 
-Add this line to your db/migrate/YYYYMMDDHHMMSS_create_admins_rb
-
-```ruby
-
-      t.string :full_name
-      t.integer :role
-      
-```
 
 Add this line to your app/models/admin.rb
 
 ```ruby
-
-  scope :query_name, -> (q) { where('lower(admins.full_name) like lower(?) ', "%#{q}%") }
 
   has_one :user, as: :source, dependent: :destroy
   accepts_nested_attributes_for :user
@@ -245,41 +235,12 @@ Add this line to your db/seeds.rb
 
  ActiveRecord::Base.transaction do
   Admin.create!(role: :admin,
-                user_attributes: { email: 'admin@name.com',
+                user_attributes: { email: 'admin@xxxx.com',
                                    password: '123456',
                                    first_name: 'admin',
                                    last_name: 'name', })
 
 end
-```
-
-Create file app/models/user.rb with following code
-
-
-```ruby
-class User < ApplicationRecord
-
-  devise :database_authenticatable, :rememberable
-
-  belongs_to :source, polymorphic: true
-
-  before_save :set_full_name
-  after_save :set_source_full_name
-
-  validates  :email, presence: true
-
-  def set_full_name
-    self.full_name = "#{first_name} #{last_name}"
-  end
-
-  def set_source_full_name
-    if self.source.full_name != self.full_name
-      self.source.update_attribute(:full_name, self.full_name)
-    end
-  end
-
-end
-      
 ```
 
 Final execution：
