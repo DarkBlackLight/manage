@@ -140,7 +140,7 @@ Create file app/controllers/admin/resources_controller.rb with following code
 
 ```ruby
 
-class Admin::ResourcesController < ApplicationController
+class Admin::ResourcesController < AdminController
   include ManageResourcesConcern
 end
 ```
