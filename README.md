@@ -18,7 +18,10 @@ gem 'kaminari', "~> 1.2.1"
 gem 'rails_sortable', "~> 1.4.1"
 gem 'caxlsx', "~> 3.0.4"
 gem 'caxlsx_rails', "~> 0.6.2"
-gem 'manage', git: 'https://github.com/liwuqi95/manage'
+gem 'manage', git: 'https://github.com/DarkBlackLight/manage'
+gem 'manage-coreui', git: 'https://github.com/DarkBlackLight/manage-coreui'
+gem 'font-awesome-sass', '~> 5.15.1'
+
 ```
 
 And then execute:
@@ -42,8 +45,28 @@ rails manage_engine:install:migrations
 Add this line to your app/assets/config/manifest.js
 
 ```ruby
-// = link manage_manifest.js
+
+//= link admin.js
+//= link admin.css
+
 ```
+
+Create file app/assets/javascripts/admin.js with following code
+
+```ruby
+
+//= require manage
+
+```
+
+Create file app/assets/stylesheets/admin.scss with following code
+
+```ruby
+
+@import "manage";
+
+```
+
 
 Create file app/models/ability/admin_ability.rb with following code
 
@@ -84,18 +107,21 @@ Create file app/controllers/admin_controller.rb with following code
 ```ruby
 
 class AdminController < ApplicationController
+
+  before_action :authenticate_admin_user!
+  # before_action :setup_user_view
+
+  
   include AdminHelper
   include ManageControllerConcern
-  before_action :authenticate_admin_user!
-  before_action :setup_user_view
 
   def current_ability
     @current_ability ||= Ability::AdminAbility.new(current_admin_user)
   end
-
-  def setup_user_view
-    setup_view(current_admin_user)
-  end
+  
+  # def setup_user_view
+  #   setup_view(current_admin_user)
+  # end
 
   def setup_routes
     @routes = [
@@ -165,43 +191,100 @@ Add this line to your app/models/application_record.rb inside ApplicationRecord
   include Filterable
 ```
 
-## Deployment with Docker
+Use the following command to create the admn table
 
-```shell
-bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java
-bundle package --all-platforms
+```bash
+$ rails g model admin --force
 ```
 
-## Remove bootsnap
-
-remove this line in config/boot.rb
+Add this line to your db/migrate/YYYYMMDDHHMMSS_create_admins_rb
 
 ```ruby
-require "bootsnap/setup"
+
+      t.string :full_name
+      t.integer :role
+      
 ```
 
-remove this line in gemfile
+Add this line to your app/models/admin.rb
 
 ```ruby
-gem 'bootsnap', '>= 1.4.4', require: false
+
+  scope :query_name, -> (q) { where('lower(admins.full_name) like lower(?) ', "%#{q}%") }
+
+  has_one :user, as: :source, dependent: :destroy
+  accepts_nested_attributes_for :user
+      
 ```
 
-## Remove webpack
+Create file app/controllers/admin/admins_controller.rb with following code
 
-```shell
-rm bin/webpack.rb
-rm config/webpacker.yml
-rm config/webpack
-rm -rf app/javascripts
+
+```ruby
+
+ class Admin::AdminsController < Admin::ResourcesController
+
+  private
+
+  def filter_params
+    params.slice(:query_name)
+  end
+
+  def resource_params
+    params.require(:admin).permit(:full_name, :role, user_attributes: [:id, :first_name, :last_name, :email, :password, :password_confirmation])
+  end
+
+end
+      
 ```
 
-remove config.webpacker.check_yarn_integrity = false from config/{development, test, production}.rb remove webpack from
-gemfile
+Add this line to your db/seeds.rb
 
-## Contributing
+```ruby
 
-Contribution directions go here.
+ ActiveRecord::Base.transaction do
+  Admin.create!(role: :admin,
+                user_attributes: { email: 'admin@name.com',
+                                   password: '123456',
+                                   first_name: 'admin',
+                                   last_name: 'name', })
 
-## License
+end
+```
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+Create file app/models/user.rb with following code
+
+
+```ruby
+class User < ApplicationRecord
+
+  devise :database_authenticatable, :rememberable
+
+  belongs_to :source, polymorphic: true
+
+  before_save :set_full_name
+  after_save :set_source_full_name
+
+  validates  :email, presence: true
+
+  def set_full_name
+    self.full_name = "#{first_name} #{last_name}"
+  end
+
+  def set_source_full_name
+    if self.source.full_name != self.full_name
+      self.source.update_attribute(:full_name, self.full_name)
+    end
+  end
+
+end
+      
+```
+
+Final execution：
+
+```bash
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
