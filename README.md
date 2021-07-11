@@ -161,6 +161,7 @@ end
 Create empty file app/views/admin/dashboard/index.html.erb with following code
 
 ```ruby
+<h1>Hello World!</h1>
 ```
 
 Create file app/controllers/admin/sessions_controller.rb with following code
