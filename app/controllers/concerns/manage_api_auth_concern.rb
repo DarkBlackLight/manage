@@ -22,7 +22,7 @@ module ManageApiAuthConcern
     end
 
     def validate_email_password
-      @resource = User.where(email: params[:user][:email].downcase, source_type: params[:user][:source_type]).first
+      @resource = User.where('lower(users.email) = ? ', params[:user][:email].downcase).where(source_type: params[:user][:source_type]).first
 
       if @resource && @resource.valid_password?(params[:user][:password])
         setup_token(@resource)
