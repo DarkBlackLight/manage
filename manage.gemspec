@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  spec.add_dependency "rails", "~> 6.1.0"
+  spec.add_dependency "rails", ">= 6.0.0"
   spec.add_dependency "devise", "~> 4.7.3"
   spec.add_dependency "cocoon", "~> 1.2.15"
   spec.add_dependency "cancancan", "~> 3.2.0"
