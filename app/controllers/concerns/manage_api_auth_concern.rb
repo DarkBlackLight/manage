@@ -6,7 +6,7 @@ module ManageApiAuthConcern
       if @current_user
         render json: { data: set_show_json(@current_user) }
       else
-        render json: { data: 'Unauthorized' }, status: :unprocessable_entity
+        render json: { data: unauthorized_message }, status: :unprocessable_entity
       end
     end
 
@@ -37,11 +37,15 @@ module ManageApiAuthConcern
         @current_user.update_columns({ token: nil, token_created_at: Time.now })
         render json: { data: set_show_json(@current_user) }
       else
-        render json: { data: 'Unauthorized' }, status: :unprocessable_entity
+        render json: { data: unauthorized_message }, status: :unprocessable_entity
       end
     end
 
     private
+
+    def unauthorized_message
+      'Unauthorized'
+    end
 
     def resource_params
       params.require(:user).permit(:email, :username, :password)
