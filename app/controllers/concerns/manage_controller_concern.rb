@@ -38,14 +38,14 @@ module ManageControllerConcern
     end
 
     def setup_user_view
-      if @config[:user_view_disabled] == nil || @config[:user_view_disabled] == false
-        user = eval("current_#{@config[:scope]}_user")
-        UserView.create!(user: user,
-                         view_controller: controller_name,
-                         view_action: action_name,
-                         view_params: params.to_s,
-                         ip_address: request.remote_ip)
-      end
+      # if @config[:user_view_disabled] == nil || @config[:user_view_disabled] == false
+      #   user = eval("current_#{@config[:scope]}_user")
+      #   UserView.create!(user: user,
+      #                    view_controller: controller_name,
+      #                    view_action: action_name,
+      #                    view_params: params.to_s,
+      #                    ip_address: request.remote_ip)
+      # end
     end
 
   end
