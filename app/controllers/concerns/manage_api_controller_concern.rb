@@ -19,8 +19,12 @@ module ManageApiControllerConcern
                       ip_address: request.remote_ip)
     end
 
+    def unauthorized_message
+      'unauthorized'
+    end
+
     rescue_from CanCan::AccessDenied do
-      render json: { data: 'unauthorized' }, status: :unauthorized
+      render json: { data: unauthorized_message }, status: :unauthorized
     end
 
   end
