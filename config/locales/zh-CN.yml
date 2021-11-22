@@ -22,6 +22,8 @@ zh-CN:
       destroy_success: '删除成功'
       selection: '选择'
       destroy_all_selected: '删除全部选中'
+      email_password_is_not_correct: '您输入邮箱或密码不正确，请检查'
+      username_password_is_not_correct: '您输入用户名或密码不正确，请检查'
   views:
     pagination:
       first: "&laquo; 首页"

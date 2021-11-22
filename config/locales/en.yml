@@ -22,4 +22,6 @@ en:
       destroy_success: 'Successfully Destroyed'
       selection: 'Selection'
       destroy_all_selected: 'Destroy Selected'
+      email_password_is_not_correct: 'Your Email or Password is incorrect.'
+      username_password_is_not_correct:  'Your Username or Password is incorrect.'
 

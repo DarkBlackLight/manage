@@ -17,7 +17,7 @@ module ManageApiAuthConcern
         setup_token(@resource)
         render json: { data: set_show_json(@resource) }, status: :ok
       else
-        render json: { data: 'Password is not valid' }, status: :unprocessable_entity
+        render json: { data: t 'manage.resources.email_password_is_not_correct' }, status: :unprocessable_entity
       end
     end
 
@@ -28,7 +28,7 @@ module ManageApiAuthConcern
         setup_token(@resource)
         render json: { data: set_show_json(@resource) }, status: :ok
       else
-        render json: { data: 'Password is not valid' }, status: :unprocessable_entity
+        render json: { data: t 'manage.resources.username_password_is_not_correct' }, status: :unprocessable_entity
       end
     end
 
