@@ -13,6 +13,8 @@ module ManageResourcesConcern
       set_includes
       @resources = @resources_all.order(index_order_by).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
       @can_create = true
+      @can_action = true
+      @actions = true
       if params[:count_period] && params[:count_period_field] && params[:count_period_last]
         respond_to do |format|
           format.json { render json: { data: @resources_all.group_by_period(params[:count_period], params[:count_period_field], last: params[:count_period_last]).count } }
