@@ -195,7 +195,7 @@ Add this line to your app/models/application_record.rb inside ApplicationRecord
 Use the following command to create the admn table
 
 ```bash
-$ rails g model admin full_name:string role:integer --force
+rails g model admin full_name:string role:integer --force
 ```
 
 
