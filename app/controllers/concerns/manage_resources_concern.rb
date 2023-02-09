@@ -14,7 +14,7 @@ module ManageResourcesConcern
       @resources = @resources_all.order(index_order_by).page(params[:page]).per(params[:page_size] ? params[:page_size] : 10)
       @can_create = true
       @can_action = true
-      @can_select = true
+      @can_select = false
       @actions = true
       if params[:count_period] && params[:count_period_field] && params[:count_period_last]
         respond_to do |format|
